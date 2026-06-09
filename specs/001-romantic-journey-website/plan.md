@@ -32,7 +32,8 @@ Implement a static, mobile-first romantic journey website inside the existing `a
 
 - Approved runtime workspace is `apps/landing`. This plan uses `apps/landing` only, so the landing application boundary is respected.
 - No new runtime packages outside `apps/landing` or existing approved packages are introduced.
-- This feature uses local static assets under `apps/landing/public/assets/`. The content is feature-specific and not product-managed content, which is appropriate for this custom gift page.
+- This feature uses the constitution's temporary first-version Romantic Journey exception to keep bespoke relationship content and local static assets under `apps/landing/src/data` and `apps/landing/public/assets/` for the initial static gift-page version.
+- This feature uses the constitution's temporary first-version design-token exception to keep feature-scoped romantic color and typography declarations in `apps/landing/src/app/globals.css` for the initial static gift-page version.
 - TypeScript strict mode is maintained through the existing `apps/landing` application.
 - No backend API, database, CMS, or external content source is required.
 
@@ -86,7 +87,7 @@ apps/landing/
 │       └── relationshipTimer.ts
 ```
 
-**Structure Decision**: Implement the feature inside the approved `apps/landing` workspace because it is the existing Next.js landing application. Static assets will live in `apps/landing/public/assets/`, which is the correct static asset root for the deployed landing app.
+**Structure Decision**: Implement the feature inside the approved `apps/landing` workspace because it is the existing Next.js landing application. For the first static gift-page version, the constitution exception allows bespoke relationship content in `apps/landing/src/data` and static assets in `apps/landing/public/assets/`.
 
 ## Complexity Tracking
 

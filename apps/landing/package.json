@@ -3,19 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3002",
+    "dev": "next dev -p ${PORT:-3002}",
     "build": "next build",
     "compile": "next build",
     "lint": "eslint \"src/**/*.{ts,tsx}\" \"__tests__/**/*.tsx\" \"*.ts\" --max-warnings=0",
-    "test": "jest --config jest.config.cjs --coverage",
+    "test": "jest --config jest.config.cjs",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
     "@nobu/content-legal": "workspace:*",
     "@nobu/content-landing": "workspace:*",
     "next": "^15.3.2",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
     "react-icons": "^5.6.0"
   },
   "devDependencies": {

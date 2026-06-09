@@ -5,23 +5,20 @@ on:
     paths:
       - "apps/landing/**"
       - "packages/content-landing/**"
-      - "packages/content-legal/**"
       - "pnpm-lock.yaml"
       - "!apps/landing/**/*.md"
       - "!packages/content-landing/**/*.md"
-      - "!packages/content-legal/**/*.md"
+      
   push:
     branches:
       - develop
     paths:
       - "apps/landing/**"
       - "packages/content-landing/**"
-      - "packages/content-legal/**"
       - "pnpm-lock.yaml"
       - "!apps/landing/**/*.md"
       - "!packages/content-landing/**/*.md"
-      - "!packages/content-legal/**/*.md"
-
+      
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -35,12 +32,6 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile --filter @nobu/landing...
-      - name: Lint content-legal
-        run: pnpm --filter @nobu/content-legal lint
-      - name: Test content-legal
-        run: pnpm --filter @nobu/content-legal test
-      - name: Typecheck content-legal
-        run: pnpm --filter @nobu/content-legal typecheck
       - name: Lint content-landing
         run: pnpm --filter @nobu/content-landing lint
       - name: Test content-landing

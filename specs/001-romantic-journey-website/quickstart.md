@@ -41,12 +41,28 @@
   - if autoplay is blocked, audio starts on first interaction
 
 ## Static build validation
-1. Run build:
+1. Run type checking:
+   ```bash
+   pnpm --filter @nobu/landing typecheck
+   ```
+   Expected outcome: TypeScript exits successfully with no diagnostics.
+2. Run lint:
+   ```bash
+   pnpm --filter @nobu/landing lint
+   ```
+   Expected outcome: ESLint exits successfully with zero warnings.
+3. Run tests with coverage:
+   ```bash
+   pnpm --filter @nobu/landing test --coverage
+   ```
+   Expected outcome: all landing tests pass and statement coverage remains at or above 90%.
+4. Run build:
    ```bash
    pnpm --filter @nobu/landing build
    ```
-2. Verify build succeeds without external network calls.
-3. Confirm the output is compatible with static hosting and the feature uses only local assets.
+   Expected outcome: Next.js compiles, prerenders `/`, `/privacidade`, and `/termos`, and exports static output successfully.
+5. Verify build succeeds without external network calls.
+6. Confirm the output is compatible with static hosting and the feature uses only local assets.
 
 ## Notes
 - If browser autoplay is blocked, interact with the page once and verify that audio begins.

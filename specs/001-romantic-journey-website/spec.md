@@ -64,8 +64,8 @@ User navigates through multiple Journey slides, each representing a chapter or m
 5. **Given** user is on a Journey slide on desktop, **When** they press ArrowRight key, **Then** the next slide transitions
 6. **Given** user is on a Journey slide on desktop, **When** they press ArrowLeft key, **Then** the previous slide transitions
 7. **Given** a Journey slide is displayed, **When** user views it, **Then** the slide displays the title, large photo, and romantic phrase/caption in the correct layout
-8. **Given** user navigates through all Journey slides, **When** they reach the "O que mais amo em você" slide, **Then** that slide displays with its dedicated content
-9. **Given** user navigates through all Journey slides, **When** they reach the "Nossos Planos" slide, **Then** that slide displays with its dedicated content
+8. **Given** user navigates beyond the seven photo Journey slides, **When** they reach the "O que mais amo em você" slide, **Then** that dedicated slide displays with its own content
+9. **Given** user navigates beyond the seven photo Journey slides, **When** they reach the "Nossos Planos" slide, **Then** that dedicated slide displays with its own content
 
 ---
 
@@ -168,11 +168,11 @@ User reaches the final slide after browsing the journey. The slide displays a ro
 - **FR-006**: Relationship Counter slide MUST display: years, months, days, hours, minutes, seconds in real-time
 - **FR-007**: Counter MUST update every second and accurately reflect time elapsed since relationship start date
 - **FR-008**: Counter slide MUST display the Portuguese phrase: "O tempo pode ser estranho... Quando você está longe, os dias passam lentos. Mas quando está perto, tudo passa rápido demais."
-- **FR-009**: Website MUST include exactly 7 Journey slides, each with unique title, large photo, and romantic phrase/caption
+- **FR-009**: Website MUST include exactly 12 slides total: 1 Hero slide, 1 Relationship Counter slide, 7 Journey photo slides, 1 "O que mais amo em você" slide, 1 "Nossos Planos" slide, and 1 Final Message slide
 - **FR-010**: Journey slides MUST use reusable layout: title, large photo, short phrase/caption, previous button, next button
 - **FR-011**: Relationship counter MUST use a fixed hardcoded relationship start date of 14 January 2026 at 20:00 local time
-- **FR-012**: Website MUST include a Journey slide titled "O que mais amo em você" with dedicated content
-- **FR-013**: Website MUST include a Journey slide titled "Nossos Planos" with dedicated content
+- **FR-012**: Website MUST include a dedicated slide titled "O que mais amo em você" with dedicated content
+- **FR-013**: Website MUST include a dedicated slide titled "Nossos Planos" with dedicated content
 - **FR-014**: Final Message slide MUST include: romantic title (e.g., "Uma mensagem para você"), photo, message card, "FIM" text, "(de um grande começo)" text, and closing phrase about future
 - **FR-015**: Navigation MUST support: click/tap, keyboard (ArrowRight, ArrowLeft on desktop), optional swipe gestures (mobile)
 - **FR-016**: Navigation buttons: next button round and positioned on right, previous button round and positioned on left
@@ -213,7 +213,7 @@ User reaches the final slide after browsing the journey. The slide displays a ro
 - **SC-002**: Relationship counter displays and updates every second without visible lag or glitches
 - **SC-003**: User can navigate through all slides using three different methods (tap/click button, keyboard arrow keys, swipe gesture) without errors
 - **SC-004**: Music starts automatically on page load OR within 1 second of first user interaction
-- **SC-005**: All six required slides (Hero, Counter, Journey slides, "O que mais amo em você", "Nossos Planos", Final Message) are implemented with dedicated content
+- **SC-005**: All 12 required slides are implemented with dedicated content: Hero, Counter, seven Journey photo slides, "O que mais amo em você", "Nossos Planos", and Final Message
 - **SC-006**: Desktop and Mobile experiences are visually and functionally distinct when viewed side-by-side on same slide
 - **SC-007**: Mobile viewport respects safe areas on iPhone devices with notch/home indicator
 - **SC-008**: Counter slide displays the full Portuguese phrase without text overflow on mobile screens

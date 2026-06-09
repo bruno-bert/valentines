@@ -41,7 +41,7 @@
 - 13 success criteria are measurable and technology-agnostic
 - 10 explicit assumptions document reasonable defaults and project constraints
 - 8+ edge cases identified for robustness
-- All required slides explicitly specified: Hero, Counter, Journey (5+), "O que mais amo", "Nossos Planos", Final Message
+- All 12 required slides explicitly specified: Hero, Counter, 7 Journey photo slides, "O que mais amo", "Nossos Planos", Final Message
 - Both desktop and mobile experiences independently defined as P1 priorities
 - Music autoplay with fallback documented
 - Visual identity (dark, sunset, rose-gold, peach, fonts) fully specified

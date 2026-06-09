@@ -245,6 +245,26 @@ documented framework incompatibilities, third-party library escape hatches,
 or non-visual test fixtures, and the plan and code review MUST record the
 reason.
 
+#### First-Version Romantic Journey Exception
+
+Feature `001-romantic-journey-website` is granted a temporary first-version
+exception to keep relationship-specific text, photos, icons, fonts, and audio
+inside `apps/landing` instead of `packages/content-landing`. This exception is
+limited to the first static gift-page version because the content is bespoke,
+private, and not intended to be product-managed or reused across applications.
+
+For this exception, typed in-app content models and local static asset paths MAY
+be used in `apps/landing`, including under `apps/landing/src/data` and
+`apps/landing/public/assets`. The feature plan and tasks MUST explicitly record
+the exception, and the implementation MUST still keep presentational components
+receiving typed view-model data rather than scattering copy literals throughout
+component bodies.
+
+The exception MUST be revisited before any second version, reusable landing
+experience, content-management migration, CMS integration, or public product
+content expansion. At that point, relationship content and managed assets MUST
+move to `packages/content-landing` with typed manifests or mappers.
+
 Rationale: JSON keeps the current product simple and repo-local while the
 architecture remains ready for Strapi without leaking CMS decisions into Core
 or UI components. Separate platform content packages let Mobile, Web, and
@@ -289,6 +309,15 @@ Next.js UI components in `apps/landing` MUST use the Next.js `Image`
 component from `next/image` for image rendering. Direct `img` elements MUST be
 treated as constitution violations unless a documented exception is approved in
 the feature plan and review.
+
+Feature `001-romantic-journey-website` is granted a temporary first-version
+exception to keep romantic color and typography declarations in
+`apps/landing/src/app/globals.css` while the gift-page visual system is being
+proven. The first-version implementation MAY use CSS variables and font-face
+declarations in `globals.css` for this feature, provided the implementation
+keeps the declarations feature-scoped and does not add UI tokens to
+`packages/core`. This exception MUST be revisited before a second version or
+reusable product theme work, when app-owned token files should be introduced.
 
 Rationale: Valentines needs a product-owned visual system while anchoring the
 brand identity in the approved typography and color palette.
@@ -631,4 +660,4 @@ Amendment and compliance rules:
 - A periodic review SHOULD be performed to remove outdated guidance and keep
   the constitution aligned with the actual stack and workflow.
 
-**Version**: 7.2.0 | **Ratified**: 2026-02-26 | **Last Amended**: 2026-05-29
+**Version**: 7.2.1 | **Ratified**: 2026-02-26 | **Last Amended**: 2026-06-09
