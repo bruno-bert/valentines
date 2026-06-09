@@ -58,11 +58,7 @@ pnpm --filter @nobu/landing test --coverage
 pnpm --filter @nobu/landing build
 ```
 
-The static build exports:
-
-- `/`
-- `/privacidade`
-- `/termos`
+The static build exports the romantic journey page at `/`.
 
 ## Project Structure
 
@@ -82,7 +78,6 @@ apps/
       utils/
 packages/
   content-landing/
-  content-legal/
   content-management/
   core/
   design-system/
@@ -97,10 +92,8 @@ content and assets inside `apps/landing`, using the temporary constitution
 exception documented in `.specify/memory/constitution.md`.
 
 Images in the Next.js UI must use `next/image`. The feature currently uses local
-SVG placeholder assets so the app builds and runs fully offline from local
-project files. Replace the placeholders in `apps/landing/public/assets/photos`
-and `apps/landing/public/assets/audio/perfect.mp3` with final private assets
-when ready.
+project files. The seven Journey photo slides use the JPEG files copied from
+root `assets/photos` into `apps/landing/public/assets/photos`.
 
 ## Spec Kit
 

@@ -27,6 +27,15 @@ describe("romanticJourneyContent", () => {
     const journeySlides = romanticJourneySlides.filter((slide) => slide.type === "journey-photo");
 
     expect(journeySlides).toHaveLength(7);
+    expect(journeySlides.map((slide) => slide.image)).toEqual([
+      "/assets/photos/01-nossa-jornada.jpeg",
+      "/assets/photos/02-virou-lar.jpeg",
+      "/assets/photos/03-abracos.jpeg",
+      "/assets/photos/04-aventuras.jpeg",
+      "/assets/photos/05-risadas-jeito-de-ser.jpeg",
+      "/assets/photos/06-nos-e-o-mar.jpeg",
+      "/assets/photos/07-nossa-pequena-familia.jpeg"
+    ]);
     for (const slide of romanticJourneySlides) {
       expect(slide.image).toMatch(/^\/assets\//);
     }

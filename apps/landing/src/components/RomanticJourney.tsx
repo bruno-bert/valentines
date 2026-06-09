@@ -94,10 +94,6 @@ export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJour
       onTouchEnd={handleTouchEnd}
       onTouchStart={(event) => setTouchStartX(event.changedTouches[0].clientX)}
     >
-      <nav className="romantic-legal-links" aria-label="Links legais">
-        <a href="./privacidade.html">Política de privacidade</a>
-        <a href="./termos.html">Termos de uso</a>
-      </nav>
       <BackgroundMusic />
       <SlideShell
         backgroundImage={currentSlide.image}

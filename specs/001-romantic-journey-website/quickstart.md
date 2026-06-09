@@ -60,7 +60,7 @@
    ```bash
    pnpm --filter @nobu/landing build
    ```
-   Expected outcome: Next.js compiles, prerenders `/`, `/privacidade`, and `/termos`, and exports static output successfully.
+   Expected outcome: Next.js compiles, prerenders `/`, and exports static output successfully.
 5. Verify build succeeds without external network calls.
 6. Confirm the output is compatible with static hosting and the feature uses only local assets.
 

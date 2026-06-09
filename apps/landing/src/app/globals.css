@@ -96,26 +96,6 @@ body {
   backdrop-filter: blur(12px);
 }
 
-.romantic-legal-links {
-  position: fixed;
-  right: max(16px, env(safe-area-inset-right));
-  bottom: max(12px, env(safe-area-inset-bottom));
-  z-index: 20;
-  display: flex;
-  gap: 12px;
-  font-size: 0.78rem;
-}
-
-.romantic-legal-links a {
-  color: rgba(255, 245, 236, 0.72);
-  text-decoration: none;
-}
-
-.romantic-legal-links a:hover {
-  color: var(--romantic-text);
-  text-decoration: underline;
-}
-
 .romantic-navigation {
   pointer-events: none;
   position: absolute;

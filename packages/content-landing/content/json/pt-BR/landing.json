@@ -276,18 +276,6 @@
         "label": "Contato",
         "href": "#app-coming-soon",
         "category": "institutional"
-      },
-      {
-        "id": "footer-privacy",
-        "label": "Política de privacidade",
-        "href": "/privacidade",
-        "category": "legal"
-      },
-      {
-        "id": "footer-terms",
-        "label": "Termos de uso",
-        "href": "/termos",
-        "category": "legal"
       }
     ]
   },

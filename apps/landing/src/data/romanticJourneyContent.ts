@@ -29,6 +29,7 @@ export interface Slide {
 }
 
 const photo = (name: string): string => `/assets/photos/${name}.svg`;
+const journeyPhoto = (name: string): string => `/assets/photos/${name}.jpeg`;
 const icon = (name: string): string => `/assets/icons/${name}.svg`;
 
 export const counterPhrase =
@@ -60,49 +61,49 @@ export const romanticJourneySlides: Slide[] = [
     type: "journey-photo",
     title: "O nosso começo",
     caption: "Foi ali que meu coracao encontrou um lugar para ficar.",
-    image: photo("journey-01")
+    image: journeyPhoto("01-nossa-jornada")
   },
   {
     id: "journey-02",
     type: "journey-photo",
     title: "Sorrisos que viraram casa",
     caption: "Cada riso seu deixa o mundo mais leve para mim.",
-    image: photo("journey-02")
+    image: journeyPhoto("02-virou-lar")
   },
   {
     id: "journey-03",
     type: "journey-photo",
     title: "Nossos pequenos rituais",
     caption: "A beleza mora nas coisas simples que só nós entendemos.",
-    image: photo("journey-03")
+    image: journeyPhoto("03-abracos")
   },
   {
     id: "journey-04",
     type: "journey-photo",
     title: "Quando o tempo para",
     caption: "Perto de você, até os segundos parecem abraço.",
-    image: photo("journey-04")
+    image: journeyPhoto("04-aventuras")
   },
   {
     id: "journey-05",
     type: "journey-photo",
     title: "A paz do seu carinho",
     caption: "Seu cuidado me lembra que amor também é calma.",
-    image: photo("journey-05")
+    image: journeyPhoto("05-risadas-jeito-de-ser")
   },
   {
     id: "journey-06",
     type: "journey-photo",
     title: "Nos dois contra a pressa",
     caption: "Que a vida corra lá fora; aqui dentro, eu escolho você.",
-    image: photo("journey-06")
+    image: journeyPhoto("06-nos-e-o-mar")
   },
   {
     id: "journey-07",
     type: "journey-photo",
     title: "O amor nos detalhes",
     caption: "Tudo em você me ensina uma forma nova de agradecer.",
-    image: photo("journey-07")
+    image: journeyPhoto("07-nossa-pequena-familia")
   },
   {
     id: "what-i-love",

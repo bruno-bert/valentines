@@ -10,15 +10,13 @@ describe("mapLandingPageViewModel", () => {
     expect(vm.header.primaryCta.href).toBe("#how-it-works");
   });
 
-  it("maps footer legal links to legal pages", () => {
+  it("does not expose privacy policy or terms links", () => {
     const vm = mapLandingPageViewModel(loadLandingContent());
     const privacy = vm.footer.links.find((link) => link.id === "footer-privacy");
     const terms = vm.footer.links.find((link) => link.id === "footer-terms");
 
-    expect(privacy?.isPlaceholder).toBe(false);
-    expect(privacy?.href).toBe("/privacidade");
-    expect(terms?.isPlaceholder).toBe(false);
-    expect(terms?.href).toBe("/termos");
+    expect(privacy).toBeUndefined();
+    expect(terms).toBeUndefined();
   });
 
   it("exposes section ids for anchors", () => {
