@@ -1,0 +1,67 @@
+name: landing-ci
+
+on:
+  pull_request:
+    paths:
+      - "apps/landing/**"
+      - "packages/content-landing/**"
+      - "packages/content-legal/**"
+      - "pnpm-lock.yaml"
+      - "!apps/landing/**/*.md"
+      - "!packages/content-landing/**/*.md"
+      - "!packages/content-legal/**/*.md"
+  push:
+    branches:
+      - develop
+    paths:
+      - "apps/landing/**"
+      - "packages/content-landing/**"
+      - "packages/content-legal/**"
+      - "pnpm-lock.yaml"
+      - "!apps/landing/**/*.md"
+      - "!packages/content-landing/**/*.md"
+      - "!packages/content-legal/**/*.md"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.12.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile --filter @nobu/landing...
+      - name: Lint content-legal
+        run: pnpm --filter @nobu/content-legal lint
+      - name: Test content-legal
+        run: pnpm --filter @nobu/content-legal test
+      - name: Typecheck content-legal
+        run: pnpm --filter @nobu/content-legal typecheck
+      - name: Lint content-landing
+        run: pnpm --filter @nobu/content-landing lint
+      - name: Test content-landing
+        run: pnpm --filter @nobu/content-landing test
+      - name: Typecheck content-landing
+        run: pnpm --filter @nobu/content-landing typecheck
+      - name: Lint landing app
+        run: pnpm --filter @nobu/landing lint
+      - name: Test landing app
+        run: pnpm --filter @nobu/landing test
+      - name: Typecheck landing app
+        run: pnpm --filter @nobu/landing typecheck
+      - name: Build landing app
+        run: pnpm --filter @nobu/landing build
+
+  deploy:
+    needs: validate
+    if: github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy landing to Render
+        env:
+          deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: curl "$deploy_url"

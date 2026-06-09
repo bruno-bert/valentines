@@ -1,0 +1,30 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": false,
+    "incremental": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "types": ["jest", "@testing-library/jest-dom", "node"],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "__tests__/**/*.tsx",
+    "next-env.d.ts",
+    "next.config.mjs",
+    "postcss.config.mjs",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "tailwind.config.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["dist", ".next", "coverage", "node_modules"]
+}

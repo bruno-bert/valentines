@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 40" role="img" aria-hidden="true">
+  <rect width="140" height="40" rx="8" fill="#2D2A3E"/>
+  <path d="M22 12h6l4 16h-5l-1-4h-6l-1 4h-5L22 12zm6 10l-2-7-2 7h4z" fill="#FFFFFF"/>
+  <text x="48" y="17" fill="#FFFFFF" font-family="system-ui,sans-serif" font-size="9" font-weight="600">Disponível na</text>
+  <text x="48" y="30" fill="#FFFFFF" font-family="system-ui,sans-serif" font-size="12" font-weight="700">App Store</text>
+</svg>

@@ -1,0 +1,299 @@
+﻿{
+  "brand": {
+    "name": "Nobu",
+    "tagline": "Aprendizado emocional que acolhe e diverte",
+    "logoAlt": "Nobu",
+    "logoSrc": "/landing/brand/nobu-logo.png"
+  },
+  "navigation": {
+    "items": [
+      { "id": "nav-how", "label": "Como funciona", "targetId": "how-it-works" },
+      { "id": "nav-models", "label": "Modelos de estudo", "targetId": "study-models" },
+      { "id": "nav-benefits", "label": "Benefícios", "targetId": "benefits" },
+      { "id": "nav-app", "label": "App em breve", "targetId": "app-coming-soon" }
+    ],
+    "primaryCta": {
+      "label": "Ver como funciona",
+      "targetId": "how-it-works"
+    }
+  },
+  "hero": {
+    "eyebrow": "Para famílias e educadores",
+    "headline": "Aprendizado emocional que acolhe, diverte e faz seu filho brilhar",
+    "subheadline": "O Nobu é uma plataforma feita para famílias que querem mais do que estudo mecânico — com segurança emocional, ludicidade e confiança.",
+    "primaryCta": {
+      "label": "Ver como funciona",
+      "targetId": "how-it-works"
+    },
+    "secondaryCta": {
+      "label": "Explorar modelos",
+      "targetId": "study-models"
+    },
+    "visual": {
+      "src": "/landing/pai-filho.png",
+      "alt": "Pai e filho estudando juntos no tablet com materiais do Nobu"
+    }
+  },
+  "storeButtons": {
+    "sectionLabel": "Disponível em breve nas lojas",
+    "appStore": {
+      "platform": "ios",
+      "status": "comingSoon",
+      "href": null,
+      "ariaLabel": "Baixar na App Store — em breve"
+    },
+    "googlePlay": {
+      "platform": "android",
+      "status": "comingSoon",
+      "href": null,
+      "ariaLabel": "Baixar no Google Play — em breve"
+    }
+  },
+  "howItWorks": {
+    "sectionId": "how-it-works",
+    "layoutVariant": "numberedCards",
+    "title": "Como o Nobu funciona",
+    "description": "Do seu perfil de estudo ao plano personalizado — em poucos passos, com IA que entende como você aprende melhor.",
+    "steps": [
+      {
+        "id": "step-questionnaire",
+        "title": "Responda um questionário rápido",
+        "description": "Antes de começar, você responde perguntas curtas para identificar seu perfil de estudo.",
+        "icon": "/landing/icons/questionnaire.svg"
+      },
+      {
+        "id": "step-upload",
+        "title": "Envie seus materiais",
+        "description": "Fotos, documentos, PDFs, textos e anotações — tudo o que você já usa para estudar.",
+        "icon": "/landing/icons/upload.svg"
+      },
+      {
+        "id": "step-model",
+        "title": "Receba uma recomendação de modelo de estudo",
+        "description": "Com base no seu perfil, a IA sugere o formato mais eficaz: flashcards, mapa mental, resumo, guia ou roteiro. Você também pode escolher outro modelo manualmente.",
+        "icon": "/landing/icons/study-model.svg"
+      },
+      {
+        "id": "step-plan",
+        "title": "Gere e ajuste seu plano de estudo",
+        "description": "O Nobu monta um plano personalizado e você refina com feedback até ficar do seu jeito.",
+        "icon": "/landing/icons/study-plan.svg"
+      }
+    ]
+  },
+  "studyModels": {
+    "sectionId": "study-models",
+    "layoutVariant": "bento",
+    "title": "Modelos de estudo para cada perfil",
+    "subtitle": "A IA recomenda o formato ideal — e você pode trocar quando quiser.",
+    "items": [
+      {
+        "id": "model-flashcards",
+        "title": "Flashcards",
+        "description": "Revise conceitos em cartões curtos, ideais para memorização e revisão rápida.",
+        "icon": "/landing/icons/flashcards.svg"
+      },
+      {
+        "id": "model-mindmap",
+        "title": "Mapa mental",
+        "description": "Visualize conexões entre ideias e veja o conteúdo como um todo.",
+        "icon": "/landing/icons/mindmap.svg"
+      },
+      {
+        "id": "model-summary",
+        "title": "Resumo",
+        "description": "Condense PDFs, textos e anotações em sínteses claras e objetivas.",
+        "icon": "/landing/icons/summary.svg"
+      },
+      {
+        "id": "model-guide",
+        "title": "Guia de estudo",
+        "description": "Siga um roteiro estruturado com etapas e checkpoints de aprendizado.",
+        "icon": "/landing/icons/study-guide.svg"
+      },
+      {
+        "id": "model-roadmap",
+        "title": "Roteiro",
+        "description": "Planeje sua jornada com marcos, prazos e prioridades ajustáveis.",
+        "icon": "/landing/icons/roadmap.svg"
+      }
+    ]
+  },
+  "problem": {
+    "sectionId": "problem",
+    "layoutVariant": "gridCards",
+    "title": "Aprender pode parecer pesado demais para uma criança",
+    "introduction": "Muitas experiências educacionais ignoram o que a criança sente no caminho. Quando o emocional fica de fora, famílias e educadores percebem desengajamento, insegurança e frustração.",
+    "painPoints": [
+      {
+        "id": "pain-pressure",
+        "title": "Pressão que afasta",
+        "description": "Conteúdo rígido e cobrança constante reduzem a curiosidade natural da criança."
+      },
+      {
+        "id": "pain-emotion",
+        "title": "Emoção deixada de lado",
+        "description": "Sem espaço para acolhimento, errar vira medo — não parte do aprendizado."
+      },
+      {
+        "id": "pain-trust",
+        "title": "Famílias sem clareza",
+        "description": "Pais e responsáveis querem ferramentas seguras, mas nem sempre encontram linguagem acessível e transparente."
+      }
+    ]
+  },
+  "benefits": {
+    "sectionId": "benefits",
+    "layoutVariant": "bento",
+    "title": "Benefícios para crianças e famílias",
+    "subtitle": "Um ambiente pensado para crescer com leveza, encorajamento e descoberta.",
+    "items": [
+      {
+        "id": "benefit-emotional",
+        "title": "Segurança emocional",
+        "description": "A criança se sente acolhida para explorar, errar e tentar de novo com confiança.",
+        "audience": "child"
+      },
+      {
+        "id": "benefit-play",
+        "title": "Aprendizado lúdico",
+        "description": "Atividades e narrativas convidam à curiosidade sem sobrecarregar.",
+        "audience": "child"
+      },
+      {
+        "id": "benefit-family",
+        "title": "Parceria com a família",
+        "description": "Pais e responsáveis acompanham com clareza e linguagem que inspira confiança.",
+        "audience": "family"
+      },
+      {
+        "id": "benefit-educator",
+        "title": "Apoio para educadores",
+        "description": "Escolas encontram uma proposta alinhada ao desenvolvimento emocional e ao engajamento em sala.",
+        "audience": "educator"
+      }
+    ]
+  },
+  "features": {
+    "sectionId": "features",
+    "layoutVariant": "horizontalScroll",
+    "title": "Como o Nobu apoia a jornada",
+    "items": [
+      {
+        "id": "feature-journeys",
+        "title": "Jornadas guiadas",
+        "description": "Trilhas pensadas para a idade, com ritmo gentil e reforço positivo em cada passo."
+      },
+      {
+        "id": "feature-feedback",
+        "title": "Feedback encorajador",
+        "description": "Respostas e celebrações que valorizam o esforço, não apenas o acerto."
+      },
+      {
+        "id": "feature-world",
+        "title": "Mundo acolhedor",
+        "description": "Visual leve, personagens amigáveis e baixa carga cognitiva para manter o foco no que importa."
+      }
+    ]
+  },
+  "differentiators": {
+    "sectionId": "differentiators",
+    "layoutVariant": "strip",
+    "title": "Por que escolher Nobu",
+    "items": [
+      {
+        "id": "diff-emotional-first",
+        "title": "Emoção em primeiro lugar",
+        "description": "Não somos mais um app de conteúdo: colocamos o bem-estar da criança no centro da experiência."
+      },
+      {
+        "id": "diff-not-corporate",
+        "title": "Longe do tom corporativo",
+        "description": "Linguagem humana, cores acolhedoras e interações que parecem feitas para crianças — não para relatórios."
+      },
+      {
+        "id": "diff-family-educator",
+        "title": "Feito com famílias e escolas",
+        "description": "Pais, responsáveis e educadores encontram valor claro sem jargão técnico."
+      }
+    ]
+  },
+  "socialProof": {
+    "sectionId": "social-proof",
+    "title": "Feito com carinho para famílias e educadores",
+    "testimonial": {
+      "id": "testimonial-1",
+      "quote": "Finalmente um jeito de aprender que não deixa meu filho com medo de errar.",
+      "attribution": "Responsável, região Sudeste"
+    },
+    "stat": {
+      "value": "Acolhimento",
+      "label": "no centro de cada experiência Nobu"
+    },
+    "trustBadges": [
+      {
+        "id": "trust-privacy",
+        "label": "Privacidade em primeiro lugar",
+        "icon": "/landing/icons/shield.svg"
+      },
+      {
+        "id": "trust-children",
+        "label": "Pensado para crianças",
+        "icon": "/landing/icons/heart.svg"
+      },
+      {
+        "id": "trust-educators",
+        "label": "Apoio a educadores",
+        "icon": "/landing/icons/book.svg"
+      }
+    ]
+  },
+  "appComingSoon": {
+    "sectionId": "app-coming-soon",
+    "title": "O Nobu está chegando para transformar sua forma de estudar",
+    "description": "Em breve, você poderá transformar documentos, fotos, textos e anotações em planos de estudo personalizados com IA.",
+    "primaryCta": {
+      "label": "Ver como funciona",
+      "targetId": "how-it-works"
+    },
+    "chips": [
+      { "id": "chip-ios", "label": "iOS em breve", "platform": "ios" },
+      { "id": "chip-android", "label": "Android em breve", "platform": "android" }
+    ]
+  },
+  "footer": {
+    "copyright": "© 2026 Nobu. Todos os direitos reservados.",
+    "tagline": "Aprendizado emocional para crianças",
+    "links": [
+      {
+        "id": "footer-about",
+        "label": "Sobre o Nobu",
+        "href": "#benefits",
+        "category": "institutional"
+      },
+      {
+        "id": "footer-contact",
+        "label": "Contato",
+        "href": "#app-coming-soon",
+        "category": "institutional"
+      },
+      {
+        "id": "footer-privacy",
+        "label": "Política de privacidade",
+        "href": "/privacidade",
+        "category": "legal"
+      },
+      {
+        "id": "footer-terms",
+        "label": "Termos de uso",
+        "href": "/termos",
+        "category": "legal"
+      }
+    ]
+  },
+  "seo": {
+    "title": "Nobu — Aprendizado emocional para crianças",
+    "description": "Nobu transforma seus materiais em planos de estudo personalizados com IA. Conheça como funciona e os modelos de estudo disponíveis.",
+    "ogImageAlt": "Nobu — plataforma de aprendizado emocional para crianças"
+  }
+}

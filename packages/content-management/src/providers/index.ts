@@ -1,0 +1,1 @@
+export { FutureCmsContentProvider } from "../contracts";

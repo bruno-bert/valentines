@@ -1,0 +1,136 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --font-nunito: Nunito, ui-sans-serif, system-ui, sans-serif;
+  --nobu-motion-duration-fast: 150ms;
+  --nobu-motion-duration-normal: 250ms;
+  --nobu-motion-duration-slow: 400ms;
+  --nobu-motion-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --nobu-motion-easing-emphasized: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --nobu-motion-slide-up: 16px;
+  --nobu-motion-scale-from: 0.96;
+  --gradient-hero: linear-gradient(135deg, #513aa1 0%, #5cb8ff 100%);
+  --gradient-panel: linear-gradient(
+    180deg,
+    rgba(81, 58, 161, 0.2) 0%,
+    rgba(255, 249, 242, 0) 100%
+  );
+  --gradient-waitlist: linear-gradient(
+    135deg,
+    rgba(81, 58, 161, 0.12) 0%,
+    rgba(92, 184, 255, 0.08) 100%
+  );
+}
+
+body {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .focus-ring {
+    @apply outline-none ring-2 ring-landing-primary ring-offset-2 ring-offset-landing-page;
+  }
+
+  .bg-nobu-hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .bg-nobu-panel-gradient {
+    background: var(--gradient-panel);
+  }
+
+  .bg-nobu-waitlist-gradient {
+    background: var(--gradient-waitlist);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes nobu-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(var(--nobu-motion-slide-up));
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes nobu-scale-in {
+    from {
+      opacity: 0;
+      transform: scale(var(--nobu-motion-scale-from));
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes nobu-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .motion-fade-up {
+    animation: nobu-fade-up var(--nobu-motion-duration-slow) var(--nobu-motion-easing-emphasized)
+      both;
+  }
+
+  .motion-scale-in {
+    animation: nobu-scale-in var(--nobu-motion-duration-slow) var(--nobu-motion-easing-emphasized)
+      both;
+  }
+
+  .motion-float {
+    animation: nobu-float 6s ease-in-out infinite;
+  }
+
+  .motion-hover-lift {
+    transition:
+      transform var(--nobu-motion-duration-fast) var(--nobu-motion-easing-standard),
+      box-shadow var(--nobu-motion-duration-fast) var(--nobu-motion-easing-standard);
+  }
+
+  .motion-hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(81, 58, 161, 0.18);
+  }
+
+  .motion-button-press:active {
+    transform: scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-fade-up,
+  .motion-scale-in,
+  .motion-float {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .motion-hover-lift:hover {
+    transform: none;
+  }
+}
+
+a:focus-visible,
+button:focus-visible {
+  @apply focus-ring;
+}

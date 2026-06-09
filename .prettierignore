@@ -1,0 +1,13 @@
+node_modules/
+.agents/
+.specify/
+specs/
+dist/
+build/
+coverage/
+.firebase-functions/
+.next/
+out/
+.expo/
+pnpm-lock.yaml
+packages/common-infra-storage-firebase-sql-connect/src/generated/
