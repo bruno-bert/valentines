@@ -13,7 +13,7 @@ function collectFiles(dir: string, acc: string[] = []): string[] {
   return acc;
 }
 
-describe("@nobu/landing framer-motion guard", () => {
+describe("@valentines/landing framer-motion guard", () => {
   it("does not import framer-motion", () => {
     const srcDir = join(__dirname, "../src");
     const files = collectFiles(srcDir);

@@ -44,9 +44,9 @@ export const romanticJourneySlides: Slide[] = [
     caption: "Um presente pequeno para guardar um amor enorme.",
     message:
       "Preparei cada pedacinho desta página para lembrar o quanto a nossa história é linda.",
-    image: photo("hero"),
-    desktopImage: "/assets/images/desktop/hero-reference.svg",
-    mobileImage: "/assets/images/mobile/hero-reference.svg"
+    image: "/assets/desktop/01-hero.jpeg",
+    desktopImage: "/assets/desktop/01-hero.jpeg",
+    mobileImage: "/assets/mobile/01-hero.jpeg"
   },
   {
     id: "counter",
@@ -59,50 +59,57 @@ export const romanticJourneySlides: Slide[] = [
   {
     id: "journey-01",
     type: "journey-photo",
-    title: "O nosso começo",
-    caption: "Foi ali que meu coracao encontrou um lugar para ficar.",
+    title: "Nossa Jornada",
+    caption:
+      "Talvez naquele dia nós ainda não soubéssemos exatamente onde essa história iria nos levar. Mas olhando para trás, percebo que os melhores capítulos começaram em momentos simples como este.",
     image: journeyPhoto("01-nossa-jornada")
   },
   {
     id: "journey-02",
     type: "journey-photo",
-    title: "Sorrisos que viraram casa",
-    caption: "Cada riso seu deixa o mundo mais leve para mim.",
+    title: "Quando você virou lar",
+    caption:
+      "Existem lugares bonitos no mundo, mas em algum momento eu percebi que meu lugar favorito passou a ser qualquer lugar onde você estivesse.",
     image: journeyPhoto("02-virou-lar")
   },
   {
     id: "journey-03",
     type: "journey-photo",
-    title: "Nossos pequenos rituais",
-    caption: "A beleza mora nas coisas simples que só nós entendemos.",
+    title: "Abraços que acolhem",
+    caption:
+      "Tem abraços que não precisam dizer nada. O seu é meu lugar seguro, minha calma e meu lar.",
     image: journeyPhoto("03-abracos")
   },
   {
     id: "journey-04",
     type: "journey-photo",
-    title: "Quando o tempo para",
-    caption: "Perto de você, até os segundos parecem abraço.",
+    title: "Nossas aventuras",
+    caption:
+      "Seja em um passeio, uma viagem ou uma noite qualquer, tudo fica mais leve quando estou com você.",
     image: journeyPhoto("04-aventuras")
   },
   {
     id: "journey-05",
     type: "journey-photo",
-    title: "A paz do seu carinho",
-    caption: "Seu cuidado me lembra que amor também é calma.",
+    title: "Nosso jeito de ser",
+    caption:
+      "Entre risadas, brincadeiras e planos malucos, a gente foi criando um jeito só nosso de amar.",
     image: journeyPhoto("05-risadas-jeito-de-ser")
   },
   {
     id: "journey-06",
     type: "journey-photo",
-    title: "Nos dois contra a pressa",
-    caption: "Que a vida corra lá fora; aqui dentro, eu escolho você.",
+    title: "Nós e o mar",
+    caption:
+      "Alguns momentos parecem guardar o tempo. Esse é um daqueles que eu queria viver de novo só para sentir tudo outra vez.",
     image: journeyPhoto("06-nos-e-o-mar")
   },
   {
     id: "journey-07",
     type: "journey-photo",
-    title: "O amor nos detalhes",
-    caption: "Tudo em você me ensina uma forma nova de agradecer.",
+    title: "Nossa pequena família",
+    caption:
+      "Algumas histórias ficam ainda mais bonitas quando o amor transborda e vira cuidado, presença e família.",
     image: journeyPhoto("07-nossa-pequena-familia")
   },
   {
@@ -114,41 +121,49 @@ export const romanticJourneySlides: Slide[] = [
     image: photo("what-i-love"),
     items: [
       {
+        icon: icon("heart2"),
+        title: "Seu jeito único",
+        description: "Não existe ninguém como você. Seu jeito me encanta todos os dias."
+      },
+      {
+        icon: icon("smile"),
         title: "Seu sorriso",
-        description: "Ele muda o clima de qualquer dia.",
-        icon: icon("sparkle")
+        description: "É capaz de iluminar qualquer dia meu e tornar tudo mais leve."
       },
       {
-        title: "Seu jeito de cuidar",
-        description: "Voce transforma carinho em presenca.",
-        icon: icon("heart")
+        icon: icon("heart"),
+        title: "Seu coração gigante",
+        description: "Você cuida de todo mundo ao seu redor com tanto amor e generosidade."
       },
       {
-        title: "Sua coragem",
-        description: "Eu admiro a forma como você encara o mundo.",
-        icon: icon("star")
-      }
-    ]
-  },
-  {
-    id: "our-plans",
-    type: "our-plans",
-    title: "Nossos Planos",
-    subtitle: "Planos",
-    caption: "O melhor ainda está por vir.",
-    image: photo("plans"),
-    items: [
-      {
-        title: "Viajar mais",
-        description: "Descobrir lugares novos de mãos dadas."
+        icon: icon("ballon_talk"),
+        title: "Nossas conversas",
+        description: "Com você, eu posso falar sobre tudo e sobre nada. E é sempre perfeito."
       },
       {
-        title: "Construir nossa rotina",
-        description: "Fazer do cotidiano um lugar bonito para voltar."
+        icon: icon("couple"),
+        title: "Nossa parceria",
+        description: "Você é meu time, meu apoio e meu lugar seguro em qualquer momento da vida."
       },
       {
-        title: "Celebrar cada fase",
-        description: "Crescer juntos, com paciência, riso e amor."
+        icon: icon("stars"),
+        title: "Seu olhar",
+        description: "Seu olhar me acalma, me acolhe e me faz sentir que estou exatamente onde devo estar."
+      },
+      {
+        icon: icon("camera_photo"),
+        title: "Nossas aventuras",
+        description: "Cada viagem, cada plano maluco e cada nova experiência ao seu lado vira história inesquecível."
+      },
+      {
+        icon: icon("house"),
+        title: "Você é meu lar",
+        description: "Mais do que estar junto, é saber que onde você está... é onde eu pertenço."
+      },
+      {
+        icon: icon("infinite"),
+        title: "Seu amor",
+        description: "É verdadeiro, é leve, é forte e me faz querer ser a melhor versão de mim todos os dias."
       }
     ]
   },

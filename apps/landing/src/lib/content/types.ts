@@ -1,1 +1,1 @@
-export type * from "@nobu/content-landing";
+export type * from "@valentines/content-landing";

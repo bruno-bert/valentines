@@ -26,13 +26,13 @@ pnpm install
 ## Run The Next.js App
 
 ```bash
-pnpm --filter @nobu/landing dev
+pnpm --filter @valentines/landing dev
 ```
 
 If port `3002` is already in use, choose another port:
 
 ```bash
-PORT=3003 pnpm --filter @nobu/landing dev
+PORT=3003 pnpm --filter @valentines/landing dev
 ```
 
 Then open:
@@ -52,10 +52,10 @@ http://localhost:3003
 Run the landing app checks from the repository root:
 
 ```bash
-pnpm --filter @nobu/landing typecheck
-pnpm --filter @nobu/landing lint
-pnpm --filter @nobu/landing test --coverage
-pnpm --filter @nobu/landing build
+pnpm --filter @valentines/landing typecheck
+pnpm --filter @valentines/landing lint
+pnpm --filter @valentines/landing test --coverage
+pnpm --filter @valentines/landing build
 ```
 
 The static build exports the romantic journey page at `/`.

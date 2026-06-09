@@ -3,9 +3,9 @@ import type { ExpoConfig } from "expo/config";
 const contentSplashImage = "packages/content-mobile/content/images/jpg/splash.jpeg";
 
 const config: ExpoConfig = {
-  name: "Nobu Mobile",
-  slug: "nobu-mobile",
-  scheme: "nobu",
+  name: "Valentines Mobile",
+  slug: "valentines-mobile",
+  scheme: "valentines",
   version: "0.1.0",
   orientation: "portrait",
   platforms: ["ios", "android", "web"],

@@ -1,6 +1,6 @@
 import { FutureCmsContentProvider, mapManagedContent } from "../src";
 
-describe("@nobu/content-management", () => {
+describe("@valentines/content-management", () => {
   it("keeps future CMS calls behind a named NotImplemented boundary", async () => {
     await expect(
       new FutureCmsContentProvider().fetchContent({

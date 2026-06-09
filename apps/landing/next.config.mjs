@@ -2,7 +2,10 @@
 const nextConfig = {
   output: "export",
   assetPrefix: "./",
-  transpilePackages: ["@nobu/content-landing"]
+  images: {
+    unoptimized: true
+  },
+  transpilePackages: ["@valentines/content-landing"]
 };
 
 export default nextConfig;

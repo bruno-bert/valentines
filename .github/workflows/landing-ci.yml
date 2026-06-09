@@ -1,21 +1,31 @@
 name: landing-ci
 
 on:
+  workflow_dispatch:
+
   pull_request:
     paths:
+      - ".github/workflows/landing-ci.yml"
+      - "README.md"
+      - "assets/**"
       - "apps/landing/**"
       - "packages/content-landing/**"
       - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "package.json"
       - "!apps/landing/**/*.md"
       - "!packages/content-landing/**/*.md"
       
   push:
-    branches:
-      - develop
     paths:
+      - ".github/workflows/landing-ci.yml"
+      - "README.md"
+      - "assets/**"
       - "apps/landing/**"
       - "packages/content-landing/**"
       - "pnpm-lock.yaml"
+      - "pnpm-workspace.yaml"
+      - "package.json"
       - "!apps/landing/**/*.md"
       - "!packages/content-landing/**/*.md"
       
@@ -31,21 +41,21 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-      - run: pnpm install --frozen-lockfile --filter @nobu/landing...
+      - run: pnpm install --frozen-lockfile --filter @valentines/landing...
       - name: Lint content-landing
-        run: pnpm --filter @nobu/content-landing lint
+        run: pnpm --filter @valentines/content-landing lint
       - name: Test content-landing
-        run: pnpm --filter @nobu/content-landing test
+        run: pnpm --filter @valentines/content-landing test
       - name: Typecheck content-landing
-        run: pnpm --filter @nobu/content-landing typecheck
+        run: pnpm --filter @valentines/content-landing typecheck
       - name: Lint landing app
-        run: pnpm --filter @nobu/landing lint
+        run: pnpm --filter @valentines/landing lint
       - name: Test landing app
-        run: pnpm --filter @nobu/landing test
+        run: pnpm --filter @valentines/landing test
       - name: Typecheck landing app
-        run: pnpm --filter @nobu/landing typecheck
+        run: pnpm --filter @valentines/landing typecheck
       - name: Build landing app
-        run: pnpm --filter @nobu/landing build
+        run: pnpm --filter @valentines/landing build
 
   deploy:
     needs: validate

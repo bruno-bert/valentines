@@ -68,29 +68,29 @@ corepack prepare pnpm@10.12.1 <span class="token parameter variable">--activate<
 <span class="token function">pnpm</span> build
 <span class="token function">pnpm</span> <span class="token function">format</span>
 </code></pre><h2 id="run-applications">Run Applications </h2>
-<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @nobu/mobile dev
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @valentines/mobile dev
 <span class="token comment"># to run in physical phone (so it reaches the backend correctly)</span>
-<span class="token assign-left variable">EXPO_PUBLIC_NOBU_API_BASE_URL</span><span class="token operator">=</span>http://192.168.1.12:3001 <span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @nobu/mobile dev
-<span class="token assign-left variable">EXPO_PUBLIC_NOBU_API_BASE_URL</span><span class="token operator">=</span>https://api.nobueduca.com <span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @nobu/mobile dev
-<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @nobu/web dev
-<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @nobu/landing dev
-<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @nobu/common-infra-storage-postgresql db:start <span class="token comment"># optional local adapter tooling</span>
-<span class="token assign-left variable">NOBU_BACKEND_STORAGE</span><span class="token operator">=</span>firebase <span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @nobu/backend-api dev
+<span class="token assign-left variable">EXPO_PUBLIC_NOBU_API_BASE_URL</span><span class="token operator">=</span>http://192.168.1.12:3001 <span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @valentines/mobile dev
+<span class="token assign-left variable">EXPO_PUBLIC_NOBU_API_BASE_URL</span><span class="token operator">=</span>https://api.nobueduca.com <span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @valentines/mobile dev
+<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @valentines/web dev
+<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @valentines/landing dev
+<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @valentines/common-infra-storage-postgresql db:start <span class="token comment"># optional local adapter tooling</span>
+<span class="token assign-left variable">NOBU_BACKEND_STORAGE</span><span class="token operator">=</span>firebase <span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @valentines/backend-api dev
 </code></pre><h2 id="firebase-sql-connect-setup">Firebase SQL Connect Setup </h2>
 <p>Firebase SQL Connect service configuration, schema, and connectors are owned by<br>
 <code>packages/common-infra-storage-firebase-sql-connect</code>. Run setup and deployment<br>
 through that workspace so Firebase uses the package-owned configuration:</p>
 <pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token comment"># Validate the schema and connector definitions.</span>
-<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @nobu/common-infra-storage-firebase-sql-connect dataconnect:compile
+<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @valentines/common-infra-storage-firebase-sql-connect dataconnect:compile
 
 <span class="token comment"># Review the SQL changes required in the hosted Cloud SQL database.</span>
-<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @nobu/common-infra-storage-firebase-sql-connect dataconnect:diff
+<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @valentines/common-infra-storage-firebase-sql-connect dataconnect:diff
 
 <span class="token comment"># Apply the reviewed SQL schema migration.</span>
-<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @nobu/common-infra-storage-firebase-sql-connect dataconnect:migrate
+<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @valentines/common-infra-storage-firebase-sql-connect dataconnect:migrate
 
 <span class="token comment"># Deploy the SQL Connect schema and connector.</span>
-<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @nobu/common-infra-storage-firebase-sql-connect dataconnect:deploy
+<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @valentines/common-infra-storage-firebase-sql-connect dataconnect:deploy
 </code></pre><p><code>dataconnect:migrate</code> changes the hosted database schema. Review the output of<br>
 <code>dataconnect:diff</code> before running it.</p>
 <h2 id="landing-deployment">Landing Deployment </h2>
@@ -106,13 +106,13 @@ Functions configuration is owned by <code>apps/backend-api</code>, while Firebas
 Connect schema and connector files remain owned by their infrastructure<br>
 package.</p>
 <pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token comment"># Build the deployable Firebase Function artifact.</span>
-<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @nobu/backend-api functions:build
+<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @valentines/backend-api functions:build
 
 <span class="token comment"># Configure one-day cleanup for stored Functions build container images.</span>
-<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @nobu/backend-api functions:artifacts:setpolicy
+<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @valentines/backend-api functions:artifacts:setpolicy
 
 <span class="token comment"># Deploy the HTTP function after SQL Connect has been migrated/deployed.</span>
-<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @nobu/backend-api functions:deploy
+<span class="token function">pnpm</span> <span class="token parameter variable">--filter</span> @valentines/backend-api functions:deploy
 </code></pre><p>On pushes to <code>develop</code>, <code>.github/workflows/backend-api-ci.yml</code> authenticates<br>
 with Google Application Default Credentials and performs the deployment<br>
 sequence after local validation:</p>
@@ -185,18 +185,18 @@ screens must not trigger sync directly. Firebase Data Connect is the default<br>
 backend persistence provider; direct PostgreSQL access belongs in a dedicated<br>
 backend infrastructure package implementing <code>packages/backend-core</code> ports.<br>
 Backend Core owns backend configuration standards and validation independently<br>
-from frontend <code>@nobu/core</code>; the active API runtime continues selecting Firebase<br>
+from frontend <code>@valentines/core</code>; the active API runtime continues selecting Firebase<br>
 only.</p>
 <p>Landing is a marketing/content surface and must not import or depend on<br>
-<code>@nobu/core</code> unless a future plan explicitly approves the dependency.</p>
+<code>@valentines/core</code> unless a future plan explicitly approves the dependency.</p>
 <p>Product content and content-managed assets live in the matching platform package:<br>
-<code>@nobu/content-mobile</code>, <code>@nobu/content-web</code>, or <code>@nobu/content-landing</code>.<br>
+<code>@valentines/content-mobile</code>, <code>@valentines/content-web</code>, or <code>@valentines/content-landing</code>.<br>
 Each package uses <code>content/json</code>, <code>content/images</code>, and <code>content/videos</code>.<br>
-Backend/CMS fetching logic belongs in <code>@nobu/content-management</code>.</p>
+Backend/CMS fetching logic belongs in <code>@valentines/content-management</code>.</p>
 <p>Web and Landing fetch CMS/backend content at Next.js build time so output can<br>
 remain static. Mobile fetches CMS/backend content once at authenticated app<br>
 startup/login, stores it in Realm, and renders from Realm afterward. With the<br>
-current JSON strategy, Mobile loads bundled content from <code>@nobu/content-mobile</code>.<br>
+current JSON strategy, Mobile loads bundled content from <code>@valentines/content-mobile</code>.<br>
 Web and Landing image rendering MUST use Next.js <code>next/image</code>; raw <code>img</code> tags<br>
 are not allowed for product, content-managed, marketing, or UI images unless a<br>
 feature plan documents an approved exception.</p>
@@ -223,11 +223,11 @@ analytics, crash reports, and telemetry.</p>
 bundled mobile content, Realm-shaped storage, sync, analytics, observability,<br>
 and version placeholders.</li>
 <li>Web: <code>apps/web/src/composition/create-web-app-services.ts</code> wires Core and<br>
-<code>@nobu/content-web</code> for static-ready content.</li>
+<code>@valentines/content-web</code> for static-ready content.</li>
 <li>Landing: <code>apps/landing/src/composition/create-landing-services.ts</code> wires only<br>
-<code>@nobu/content-landing</code> and remains independent from Core.</li>
+<code>@valentines/content-landing</code> and remains independent from Core.</li>
 <li>Backend API: <code>apps/backend-api/src/composition/create-backend-api-services.ts</code><br>
-consumes <code>@nobu/backend-core</code> and wires auth, AI, routes, and selected<br>
+consumes <code>@valentines/backend-core</code> and wires auth, AI, routes, and selected<br>
 storage-provider adapters. Firebase Data Connect is the default backend<br>
 persistence provider.</li>
 </ul>

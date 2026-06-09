@@ -1,5 +1,5 @@
 {
-  "name": "@nobu/landing",
+  "name": "@valentines/landing",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@nobu/content-landing": "workspace:*",
+    "@valentines/content-landing": "workspace:*",
     "next": "^15.3.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",

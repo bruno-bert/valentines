@@ -59,7 +59,7 @@ class InMemoryStudyRepository implements StudyRepository {
   }
 }
 
-describe("@nobu/core StudyRepository", () => {
+describe("@valentines/core StudyRepository", () => {
   it("lists and finds active studies through Core use cases", async () => {
     const repository = new InMemoryStudyRepository();
     await repository.upsertFromRemote(study);

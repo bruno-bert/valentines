@@ -1,6 +1,8 @@
 export const landingTypography = {
   fontFamily: {
-    sans: ["var(--font-nunito)", "Nunito", "ui-sans-serif", "system-ui", "sans-serif"]
+    sans: ["var(--font-romantic-body)", "Cormorant Garamond", "Georgia", "serif"],
+    serif: ["var(--romantic-serif)", "Cormorant Garamond", "Georgia", "serif"],
+    script: ["var(--romantic-script)", "Parisienne", "Great Vibes", "cursive"]
   },
   fontSize: {
     display: ["3.5rem", { lineHeight: "1.1", fontWeight: "800", letterSpacing: "-0.02em" }],

@@ -20,7 +20,7 @@ const baseStudy: Study = {
   deletedAt: null
 };
 
-describe("@nobu/core StudiesSyncCoordinator", () => {
+describe("@valentines/core StudiesSyncCoordinator", () => {
   it("pushes queued study operations and marks accepted or conflicting work", async () => {
     const queue = new MemoryStudyQueue([
       {

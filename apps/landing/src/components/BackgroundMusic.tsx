@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export interface BackgroundMusicProps {
   source?: string;
@@ -12,27 +12,28 @@ export function BackgroundMusic({ source = "/assets/audio/perfect.mp3" }: Backgr
   const audioRef = useRef<HTMLAudioElement>(null);
   const [status, setStatus] = useState("Música: preparando Perfect");
 
+  const playAudio = useCallback(async () => {
+    const audio = audioRef.current;
+
+    if (!audio) {
+      return;
+    }
+
+    try {
+      audio.muted = false;
+      await audio.play();
+      setStatus("Música: Perfect está tocando");
+    } catch {
+      setStatus("Música: tentando tocar Perfect automaticamente");
+    }
+  }, []);
+
   useEffect(() => {
     const audio = audioRef.current;
 
     if (!audio) {
       return undefined;
     }
-
-    let cleanedUp = false;
-
-    const playAudio = async () => {
-      try {
-        await audio.play();
-        if (!cleanedUp) {
-          setStatus("Música: Perfect está tocando");
-        }
-      } catch {
-        if (!cleanedUp) {
-          setStatus("Música: toque na tela para começar Perfect");
-        }
-      }
-    };
 
     const playAfterInteraction = () => {
       void playAudio();
@@ -41,22 +42,35 @@ export function BackgroundMusic({ source = "/assets/audio/perfect.mp3" }: Backgr
       );
     };
 
+    audio.autoplay = true;
+    audio.load();
     void playAudio();
+    audio.addEventListener("canplay", playAudio);
+    audio.addEventListener("canplaythrough", playAudio);
     interactionEvents.forEach((eventName) =>
       window.addEventListener(eventName, playAfterInteraction, { once: true, passive: true })
     );
 
     return () => {
-      cleanedUp = true;
+      audio.removeEventListener("canplay", playAudio);
+      audio.removeEventListener("canplaythrough", playAudio);
       interactionEvents.forEach((eventName) =>
         window.removeEventListener(eventName, playAfterInteraction)
       );
     };
-  }, []);
+  }, [playAudio]);
 
   return (
     <div className="romantic-music-status">
-      <audio ref={audioRef} aria-label="Perfect by Ed Sheeran" loop playsInline preload="auto" src={source} />
+      <audio
+        ref={audioRef}
+        aria-label="Perfect by Ed Sheeran"
+        autoPlay
+        loop
+        playsInline
+        preload="auto"
+        src={source}
+      />
       <span>{status}</span>
     </div>
   );

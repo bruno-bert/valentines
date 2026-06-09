@@ -1,5 +1,5 @@
 {
-  "name": "@nobu/core",
+  "name": "@valentines/core",
   "version": "0.1.0",
   "private": false,
   "description": "Reusable Nobu Core domain and application services.",

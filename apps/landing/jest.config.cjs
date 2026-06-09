@@ -7,7 +7,7 @@ const createJestConfig = nextJest({
 
 module.exports = createJestConfig({
   ...baseConfig,
-  displayName: "@nobu/landing",
+  displayName: "@valentines/landing",
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   testEnvironment: "jsdom",
   testMatch: ["<rootDir>/__tests__/**/*.test.{ts,tsx}"],
@@ -18,6 +18,6 @@ module.exports = createJestConfig({
     "!<rootDir>/src/design-system/tokens/motion.ts"
   ],
   moduleNameMapper: {
-    "^@nobu/content-landing$": "<rootDir>/../../packages/content-landing/src/index.ts"
+    "^@valentines/content-landing$": "<rootDir>/../../packages/content-landing/src/index.ts"
   }
 });

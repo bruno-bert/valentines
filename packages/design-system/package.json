@@ -1,5 +1,5 @@
 {
-  "name": "@nobu/design-system",
+  "name": "@valentines/design-system",
   "version": "0.1.0",
   "private": true,
   "main": "./dist/index.js",

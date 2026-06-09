@@ -1,1 +1,1 @@
-export { validateLandingContentDocument } from "@nobu/content-landing";
+export { validateLandingContentDocument } from "@valentines/content-landing";

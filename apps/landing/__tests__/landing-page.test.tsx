@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 
 import Page from "../src/app/page";
 
-describe("@nobu/landing romantic journey page", () => {
+describe("@valentines/landing romantic journey page", () => {
   beforeEach(() => {
     HTMLMediaElement.prototype.play = jest.fn(
       () => new Promise<void>(() => undefined)

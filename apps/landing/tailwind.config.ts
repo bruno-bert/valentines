@@ -22,7 +22,9 @@ const config = {
         nobu: landingColors
       },
       fontFamily: {
-        sans: [...landingTypography.fontFamily.sans]
+        sans: [...landingTypography.fontFamily.sans],
+        serif: [...landingTypography.fontFamily.serif],
+        script: [...landingTypography.fontFamily.script]
       },
       fontSize: {
         "landing-display": [displayFontSize[0], { ...displayFontSize[1] }],

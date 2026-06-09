@@ -7,7 +7,7 @@ import {
   isSupportedUserConfiguration
 } from "../src";
 
-describe("@nobu/core user configuration preferences", () => {
+describe("@valentines/core user configuration preferences", () => {
   it("resolves dark as the missing and invalid theme fallback", () => {
     expect(resolveThemeMode()).toBe("dark");
     expect(resolveThemeMode({ key: USER_CONFIGURATION_KEYS.theme, value: { mode: "blue" } })).toBe(

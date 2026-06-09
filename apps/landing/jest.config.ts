@@ -9,7 +9,7 @@ const createJestConfig = nextJest({
 
 const config: Config = {
   ...baseConfig,
-  displayName: "@nobu/landing",
+  displayName: "@valentines/landing",
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   testEnvironment: "jsdom",
   testMatch: ["<rootDir>/__tests__/**/*.test.ts", "<rootDir>/__tests__/**/*.test.tsx"],

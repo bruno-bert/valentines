@@ -1,5 +1,5 @@
 {
-  "name": "@nobu/content-management",
+  "name": "@valentines/content-management",
   "version": "0.1.0",
   "private": true,
   "main": "./dist/index.js",

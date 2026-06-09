@@ -5,7 +5,7 @@ import {
   validateLandingContentDocument
 } from "../src";
 
-describe("@nobu/content-landing public exports", () => {
+describe("@valentines/content-landing public exports", () => {
   it("exports load, validate, map and getLandingPageViewModel", () => {
     const doc = loadLandingContent();
     expect(() => validateLandingContentDocument(doc)).not.toThrow();

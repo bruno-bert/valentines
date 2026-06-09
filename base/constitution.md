@@ -405,9 +405,9 @@ selection MUST be explicit, typed, and isolated from presentational components.
 
 The repository MUST contain separate platform content packages:
 
-- `packages/content-mobile` with package name `@nobu/content-mobile`
-- `packages/content-web` with package name `@nobu/content-web`
-- `packages/content-landing` with package name `@nobu/content-landing`
+- `packages/content-mobile` with package name `@valentines/content-mobile`
+- `packages/content-web` with package name `@valentines/content-web`
+- `packages/content-landing` with package name `@valentines/content-landing`
 
 Each platform content package owns its product content files, JSON content,
 local assets, typed manifests, typed mappers, and platform-specific content
@@ -415,11 +415,11 @@ exports. Applications that require product content MUST declare an explicit
 dependency on the matching platform package in their `package.json`.
 
 The repository MUST also contain `packages/content-management` with package
-name `@nobu/content-management`. This package owns shared business logic for
+name `@valentines/content-management`. This package owns shared business logic for
 fetching content from a backend or future CMS, mapping CMS/backend payloads into
 typed content models, validating content contracts, handling content versions,
 and exposing content delivery use cases. Platform apps and content packages MAY
-consume `@nobu/content-management` when backend/CMS delivery is introduced.
+consume `@valentines/content-management` when backend/CMS delivery is introduced.
 
 Mobile, Web, and Landing MUST NOT own product content files inside their app
 source trees except for temporary test fixtures or app-shell placeholders
@@ -482,7 +482,7 @@ static assets unless an approved plan explicitly requires runtime dynamic
 content. Client-side components MUST NOT fetch CMS documents directly.
 
 Mobile content delivery MUST be offline-first. With the JSON strategy, Mobile
-loads bundled content from `@nobu/content-mobile` onto the device. With a future
+loads bundled content from `@valentines/content-mobile` onto the device. With a future
 CMS/backend strategy, Mobile MUST fetch content only once at the authenticated
 application start/login bootstrap, persist the fetched content into Realm, and
 read content from Realm after bootstrap. Mobile content delivery MUST NOT be
@@ -492,7 +492,7 @@ completion, profile updates, or other user-data sync triggers.
 Mobile content stored in Realm is the local source of truth for app rendering
 after login bootstrap. Content bootstrap orchestration MUST be centralized in
 the Mobile composition layer and MUST consume typed use cases from
-`@nobu/content-management` when CMS/backend delivery exists. UI screens MUST NOT
+`@valentines/content-management` when CMS/backend delivery exists. UI screens MUST NOT
 directly trigger content fetching.
 
 Switching from JSON to Strapi MUST require an approved plan that defines
@@ -910,17 +910,17 @@ The approved baseline technology stack is:
 - Next.js for `apps/web` and `apps/landing`
 - Tailwind CSS for `apps/web` and `apps/landing`
 - React Native `StyleSheet` for `apps/mobile`
-- `@nobu/content-mobile` for mobile JSON content, local content assets, typed
+- `@valentines/content-mobile` for mobile JSON content, local content assets, typed
   mappers, and bundled mobile content exports
-- `@nobu/content-web` for web JSON content, local content assets, typed
+- `@valentines/content-web` for web JSON content, local content assets, typed
   mappers, and Next.js build-time content exports
-- `@nobu/content-landing` for landing JSON content, local content assets,
+- `@valentines/content-landing` for landing JSON content, local content assets,
   typed mappers, and Next.js build-time content exports
-- `@nobu/content-management` for backend/CMS content fetching, payload
+- `@valentines/content-management` for backend/CMS content fetching, payload
   mapping, content versioning, validation, and future Strapi logic
 - Backend API app using DDD, Clean Architecture, ports/adapters, and
   dependency inversion
-- `@nobu/backend-core` for backend domain aggregates, value objects, ports,
+- `@valentines/backend-core` for backend domain aggregates, value objects, ports,
   repository contracts, use cases, and provider-neutral application-service
   implementations
 - Firebase Data Connect for default backend persistence

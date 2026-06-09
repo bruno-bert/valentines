@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { metadata } from "../src/app/layout";
 import Page from "../src/app/page";
 
-describe("@nobu/landing public rendering and SEO", () => {
+describe("@valentines/landing public rendering and SEO", () => {
   it("renders romantic journey hero and keeps landing metadata", () => {
     render(<Page />);
 

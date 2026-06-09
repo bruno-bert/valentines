@@ -3,8 +3,8 @@ import { join } from "node:path";
 
 const coreSrc = join(__dirname, "../src");
 const forbiddenImports = [
-  "@nobu/mobile-infra",
-  "@nobu/common-infra",
+  "@valentines/mobile-infra",
+  "@valentines/common-infra",
   "apps/",
   "react-native",
   "next/",

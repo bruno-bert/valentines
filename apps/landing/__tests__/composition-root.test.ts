@@ -1,6 +1,6 @@
 import { createLandingServices } from "../src/composition/create-landing-services";
 
-describe("@nobu/landing composition root", () => {
+describe("@valentines/landing composition root", () => {
   const originalEnv = process.env.CONTENT_SOURCE;
 
   afterEach(() => {

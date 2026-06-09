@@ -1,5 +1,5 @@
-import { getLandingPageViewModel } from "@nobu/content-landing";
-import { NotImplementedError } from "@nobu/content-management";
+import { getLandingPageViewModel } from "@valentines/content-landing";
+import { NotImplementedError } from "@valentines/content-management";
 
 type ContentStrategy = "json" | "strapi";
 

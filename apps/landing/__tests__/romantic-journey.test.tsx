@@ -26,6 +26,17 @@ describe("RomanticJourney", () => {
     expect(screen.getAllByRole("heading", { level: 1, name: "Nossa jornada" }).length).toBeGreaterThan(0);
   });
 
+  it("moves from the counter slide to the first Journey photo slide", () => {
+    render(<RomanticJourney />);
+    const nextButton = screen.getByRole("button", { name: /Ir para o próximo slide/i });
+
+    fireEvent.click(nextButton);
+    fireEvent.click(nextButton);
+
+    expect(screen.getAllByRole("heading", { level: 2, name: "Nossa Jornada" }).length).toBeGreaterThan(0);
+    expect(screen.getAllByRole("img", { name: /Foto romantica: Nossa Jornada/i }).length).toBeGreaterThan(0);
+  });
+
   it("supports keyboard navigation", () => {
     render(<RomanticJourney />);
 

@@ -1,6 +1,6 @@
 ﻿import RootLayout from "../src/app/layout";
 
-describe("@nobu/landing layout", () => {
+describe("@valentines/landing layout", () => {
   it("uses pt-BR as document language", () => {
     const layout = RootLayout({
       children: <span>conteúdo</span>

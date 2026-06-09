@@ -25,19 +25,19 @@ function collectSourceFiles(dir: string): string[] {
   return files;
 }
 
-describe("@nobu/landing Core isolation", () => {
-  it("does not depend on @nobu/core", () => {
+describe("@valentines/landing Core isolation", () => {
+  it("does not depend on @valentines/core", () => {
     const packageJson = JSON.parse(readFileSync(join(appRoot, "package.json"), "utf8"));
 
-    expect(packageJson.dependencies ?? {}).not.toHaveProperty("@nobu/core");
+    expect(packageJson.dependencies ?? {}).not.toHaveProperty("@valentines/core");
   });
 
-  it("does not import @nobu/core from landing source files", () => {
+  it("does not import @valentines/core from landing source files", () => {
     const sourceFiles = collectSourceFiles(srcRoot);
 
     for (const file of sourceFiles) {
       const source = readFileSync(file, "utf8");
-      expect(source).not.toContain("@nobu/core");
+      expect(source).not.toContain("@valentines/core");
     }
   });
 });

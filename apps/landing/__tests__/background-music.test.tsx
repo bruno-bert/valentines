@@ -27,7 +27,7 @@ describe("BackgroundMusic", () => {
       render(<BackgroundMusic />);
     });
 
-    await waitFor(() => expect(screen.getByText(/toque na tela/i)).toBeInTheDocument());
+    await waitFor(() => expect(screen.getByText(/tentando tocar/i)).toBeInTheDocument());
     await act(async () => {
       fireEvent.click(window);
     });
@@ -36,7 +36,7 @@ describe("BackgroundMusic", () => {
     expect(await screen.findByText(/Perfect está tocando/i)).toBeInTheDocument();
   });
 
-  it("uses looped inline local audio", () => {
+  it("uses autoplaying looped inline local audio", () => {
     HTMLMediaElement.prototype.play = jest.fn(
       () => new Promise<void>(() => undefined)
     );
@@ -45,6 +45,7 @@ describe("BackgroundMusic", () => {
 
     const audio = screen.getByLabelText("Perfect by Ed Sheeran");
     expect(audio).toHaveAttribute("src", "/assets/audio/perfect.mp3");
+    expect(audio).toHaveAttribute("autoplay");
     expect(audio).toHaveAttribute("loop");
     expect(audio).toHaveAttribute("playsInline");
   });

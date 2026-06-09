@@ -8,7 +8,7 @@
 ## Local development
 1. Start the landing app:
    ```bash
-   pnpm --filter @nobu/landing dev
+   pnpm --filter @valentines/landing dev
    ```
 2. Open `http://localhost:3002` in a browser.
 
@@ -43,22 +43,22 @@
 ## Static build validation
 1. Run type checking:
    ```bash
-   pnpm --filter @nobu/landing typecheck
+   pnpm --filter @valentines/landing typecheck
    ```
    Expected outcome: TypeScript exits successfully with no diagnostics.
 2. Run lint:
    ```bash
-   pnpm --filter @nobu/landing lint
+   pnpm --filter @valentines/landing lint
    ```
    Expected outcome: ESLint exits successfully with zero warnings.
 3. Run tests with coverage:
    ```bash
-   pnpm --filter @nobu/landing test --coverage
+   pnpm --filter @valentines/landing test --coverage
    ```
    Expected outcome: all landing tests pass and statement coverage remains at or above 90%.
 4. Run build:
    ```bash
-   pnpm --filter @nobu/landing build
+   pnpm --filter @valentines/landing build
    ```
    Expected outcome: Next.js compiles, prerenders `/`, and exports static output successfully.
 5. Verify build succeeds without external network calls.

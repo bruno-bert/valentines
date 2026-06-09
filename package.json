@@ -1,13 +1,13 @@
 {
-  "name": "nobu",
+  "name": "valentines",
   "version": "0.1.0",
   "private": true,
   "main": "apps/mobile/index.ts",
   "packageManager": "pnpm@10.12.1",
   "scripts": {
     "dev": "turbo run dev --parallel",
-    "mobile:dev": "pnpm --filter @nobu/mobile dev",
-    "mobile:dev:tunnel": "pnpm --filter @nobu/mobile dev -- --tunnel --clear",
+    "mobile:dev": "pnpm --filter @valentines/mobile dev",
+    "mobile:dev:tunnel": "pnpm --filter @valentines/mobile dev -- --tunnel --clear",
     "build": "turbo run build",
     "compile": "turbo run build",
     "lint": "turbo run lint",

@@ -140,7 +140,7 @@
 - [X] T055 [P] Refine responsive styling in `apps/landing/src/app/globals.css` and component CSS so mobile-first layouts remain distinct from desktop layouts
 - [X] T056 [P] Confirm all photo alt text is meaningful in component props for `apps/landing/src/components/*Slide.tsx`
 - [X] T057 [P] Confirm `NavigationButtons` uses `aria-label` attributes in `apps/landing/src/components/NavigationButtons.tsx`
-- [X] T058 [P] Run `pnpm --filter @nobu/landing build` and verify static build success for `apps/landing`
+- [X] T058 [P] Run `pnpm --filter @valentines/landing build` and verify static build success for `apps/landing`
 - [X] T059 [P] Update `specs/001-romantic-journey-website/quickstart.md` with exact validation commands and expected outcomes
 - [X] T060 [P] Review `specs/001-romantic-journey-website/data-model.md` and `contracts/ui-contract.md` for consistency with the implemented component props
 - [X] T061 [P] Review all image-rendering slide components in `apps/landing/src/components/*Slide.tsx` to ensure photos and visual images use `Image` from `next/image` and no raw `img` tags are used
@@ -148,7 +148,7 @@
 - [X] T063 [P] Add Jest tests for `apps/landing/src/data/romanticJourneyContent.ts` verifying the 12-slide order, seven Journey photo slides, required Portuguese titles, and local asset references
 - [X] T064 [P] Add React Testing Library tests for `apps/landing/src/components/RomanticJourney.tsx` covering initial Hero render, next/previous navigation, final-slide loop back to Hero, keyboard navigation, and no counter on Hero
 - [X] T065 [P] Add React Testing Library tests for `apps/landing/src/components/BackgroundMusic.tsx` covering autoplay attempt, first-interaction fallback listener registration, persistent looped audio, and no mandatory visible play button
-- [X] T066 [P] Run `pnpm --filter @nobu/landing test --coverage` and verify changed-code coverage remains at or above the repository threshold
+- [X] T066 [P] Run `pnpm --filter @valentines/landing test --coverage` and verify changed-code coverage remains at or above the repository threshold
 
 ---
 

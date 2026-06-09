@@ -6,7 +6,7 @@ import {
   resolveLastUpdatedWins
 } from "../src";
 
-describe("@nobu/core public exports", () => {
+describe("@valentines/core public exports", () => {
   it("exports architecture services and contracts", async () => {
     const services = createCoreServices({
       async getArchitectureMessage() {

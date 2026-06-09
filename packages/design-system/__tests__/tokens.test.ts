@@ -1,6 +1,6 @@
 import { sharedColorTokens, sharedTypographyTokens } from "../src";
 
-describe("@nobu/design-system tokens", () => {
+describe("@valentines/design-system tokens", () => {
   it("exports shared semantic color foundations", () => {
     expect(sharedColorTokens.brand.primary).toBe("#1F6FEB");
     expect(sharedColorTokens.surface.page).toBe("#F8FAFC");

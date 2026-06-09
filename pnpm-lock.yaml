@@ -102,7 +102,7 @@ importers:
 
   apps/landing:
     dependencies:
-      '@nobu/content-landing':
+      '@valentines/content-landing':
         specifier: workspace:*
         version: link:../../packages/content-landing
       next:

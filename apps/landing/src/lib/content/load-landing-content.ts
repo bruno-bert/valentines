@@ -1,1 +1,1 @@
-export { loadLandingContent } from "@nobu/content-landing";
+export { loadLandingContent } from "@valentines/content-landing";

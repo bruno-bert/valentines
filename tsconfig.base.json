@@ -14,35 +14,35 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "@nobu/config": ["packages/config/src/index.ts"],
-      "@nobu/core": ["packages/core/src/index.ts"],
-      "@nobu/backend-core": ["packages/backend-core/src/index.ts"],
-      "@nobu/design-system": ["packages/design-system/src/index.ts"],
-      "@nobu/common-api-client": ["packages/common-api-client/src/index.ts"],
-      "@nobu/content-management": ["packages/content-management/src/index.ts"],
-      "@nobu/content-mobile": ["packages/content-mobile/src/index.ts"],
-      "@nobu/content-web": ["packages/content-web/src/index.ts"],
-      "@nobu/content-landing": ["packages/content-landing/src/index.ts"],
-      "@nobu/common-infra-auth-google": ["packages/common-infra-auth-google/src/index.ts"],
-      "@nobu/common-infra-storage-firebase-sql-connect": [
+      "@valentines/config": ["packages/config/src/index.ts"],
+      "@valentines/core": ["packages/core/src/index.ts"],
+      "@valentines/backend-core": ["packages/backend-core/src/index.ts"],
+      "@valentines/design-system": ["packages/design-system/src/index.ts"],
+      "@valentines/common-api-client": ["packages/common-api-client/src/index.ts"],
+      "@valentines/content-management": ["packages/content-management/src/index.ts"],
+      "@valentines/content-mobile": ["packages/content-mobile/src/index.ts"],
+      "@valentines/content-web": ["packages/content-web/src/index.ts"],
+      "@valentines/content-landing": ["packages/content-landing/src/index.ts"],
+      "@valentines/common-infra-auth-google": ["packages/common-infra-auth-google/src/index.ts"],
+      "@valentines/common-infra-storage-firebase-sql-connect": [
         "packages/common-infra-storage-firebase-sql-connect/src/index.ts"
       ],
-      "@nobu/common-infra-storage-postgresql": [
+      "@valentines/common-infra-storage-postgresql": [
         "packages/common-infra-storage-postgresql/src/index.ts"
       ],
-      "@nobu/common-infra-ai-openai": ["packages/common-infra-ai-openai/src/index.ts"],
-      "@nobu/common-infra-ai-google": ["packages/common-infra-ai-google/src/index.ts"],
-      "@nobu/mobile-infra-storage-realm": ["packages/mobile-infra-storage-realm/src/index.ts"],
-      "@nobu/mobile-infra-storage-watermelondb": [
+      "@valentines/common-infra-ai-openai": ["packages/common-infra-ai-openai/src/index.ts"],
+      "@valentines/common-infra-ai-google": ["packages/common-infra-ai-google/src/index.ts"],
+      "@valentines/mobile-infra-storage-realm": ["packages/mobile-infra-storage-realm/src/index.ts"],
+      "@valentines/mobile-infra-storage-watermelondb": [
         "packages/mobile-infra-storage-watermelondb/src/index.ts"
       ],
-      "@nobu/mobile-infra-observability-sentry": [
+      "@valentines/mobile-infra-observability-sentry": [
         "packages/mobile-infra-observability-sentry/src/index.ts"
       ],
-      "@nobu/mobile-infra-observability-crashlytics": [
+      "@valentines/mobile-infra-observability-crashlytics": [
         "packages/mobile-infra-observability-crashlytics/src/index.ts"
       ],
-      "@nobu/mobile-infra-analytics-firebase": [
+      "@valentines/mobile-infra-analytics-firebase": [
         "packages/mobile-infra-analytics-firebase/src/index.ts"
       ]
     }

@@ -2,14 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/cormorant-garamond-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/cormorant-garamond-500.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/fonts/cormorant-garamond-600.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/fonts/cormorant-garamond-700.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Parisienne";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/parisienne-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Great Vibes";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/great-vibes-400.ttf") format("truetype");
+}
+
 :root {
   color-scheme: light;
-  --font-nunito: Nunito, ui-sans-serif, system-ui, sans-serif;
+  --font-romantic-body: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   --romantic-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --romantic-script: "Brittany Signature", Parisienne, Allura, "Great Vibes", cursive;
+  --romantic-script: "Parisienne", "Great Vibes", cursive;
   --romantic-bg: #1d0c12;
   --romantic-bg-elevated: rgba(55, 20, 28, 0.78);
-  --romantic-text: #fff5ec;
+  --romantic-text: #d88970;
   --romantic-muted: #f7d8c2;
   --romantic-rose: #d88970;
   --romantic-gold: #e8b875;
@@ -80,6 +128,401 @@ body {
 
 .romantic-slide-content {
   width: min(1120px, 100%);
+}
+
+.romantic-slide-shell-hero {
+  padding: 0;
+}
+
+.romantic-slide-shell-hero .romantic-slide-background,
+.romantic-slide-shell-hero .romantic-slide-vignette,
+.romantic-slide-shell-hero .romantic-navigation {
+  display: none;
+}
+
+.romantic-slide-shell-hero .romantic-slide-content {
+  width: 100%;
+  height: 100dvh;
+}
+
+.romantic-slide-shell-full {
+  padding: 0;
+}
+
+.romantic-slide-shell-full .romantic-slide-background,
+.romantic-slide-shell-full .romantic-slide-vignette {
+  display: none;
+}
+
+.romantic-slide-shell-full .romantic-slide-content {
+  width: 100%;
+  height: 100dvh;
+}
+
+.romantic-hero-root {
+  position: relative;
+  min-height: 100dvh;
+  display: grid;
+  overflow: hidden;
+  color: var(--romantic-text);
+}
+
+.romantic-hero-root.romantic-hero-desktop {
+  grid-template-columns: minmax(0, 56%) minmax(320px, 44%);
+}
+
+.romantic-hero-root[style] {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.romantic-hero-image-column {
+  position: relative;
+}
+
+.romantic-hero-image-panel {
+  position: relative;
+  min-height: min(72vh, 760px);
+  border-radius: 32px;
+  overflow: hidden;
+  background: #07080c;
+}
+
+.romantic-hero-image {
+  object-fit: cover;
+}
+
+.romantic-hero-image-panel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(29, 12, 18, 0.12), rgba(29, 12, 18, 0.88));
+}
+
+.romantic-hero-root.romantic-hero-desktop .romantic-hero-content {
+  align-self: center;
+}
+
+.romantic-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(29, 12, 18, 0.20), rgba(29, 12, 18, 0.86) 42%, rgba(29, 12, 18, 0.98) 100%);
+}
+
+.romantic-hero-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: 100dvh;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.38fr);
+  gap: clamp(28px, 4vw, 48px);
+  padding: clamp(40px, 4vw, 80px);
+  align-items: center;
+}
+
+.romantic-hero-main {
+  display: grid;
+  gap: clamp(18px, 2vw, 26px);
+  max-width: min(720px, 100%);
+}
+
+.romantic-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--romantic-rose);
+  font-family: var(--romantic-script);
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.romantic-hero-title-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.romantic-hero-title {
+  margin: 0;
+  font-family: var(--romantic-script);
+  font-size: clamp(2.8rem, 4.8vw, 4.6rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--romantic-text);
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.24);
+}
+
+.romantic-hero-title-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+}
+
+.romantic-hero-copy {
+  display: grid;
+  gap: 18px;
+}
+
+.romantic-hero-copy p {
+  margin: 0;
+  color: var(--romantic-muted);
+  font-size: clamp(1rem, 1.85vw, 1.2rem);
+  line-height: 1.8;
+  max-width: 42rem;
+}
+
+.romantic-hero-note {
+  margin: 0;
+  color: var(--romantic-rose);
+  font-family: var(--romantic-script);
+  font-size: 1.1rem;
+}
+
+.romantic-hero-divider {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  color: var(--romantic-rose);
+  font-family: var(--romantic-script);
+  font-size: 1rem;
+}
+
+.romantic-hero-divider span {
+  display: block;
+}
+
+.romantic-hero-divider span:first-child,
+.romantic-hero-divider span:last-child {
+  height: 1px;
+  background: rgba(255, 224, 198, 0.26);
+}
+
+.romantic-hero-music-card {
+  border: 1px solid var(--romantic-border);
+  border-radius: 18px;
+  background: rgba(29, 12, 18, 0.72);
+  padding: 22px;
+  display: grid;
+  gap: 12px;
+  max-width: 540px;
+}
+
+.romantic-hero-music-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.romantic-hero-waveform {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.romantic-hero-waveform span {
+  display: inline-block;
+  width: 4px;
+  border-radius: 999px;
+  background: rgba(255, 224, 198, 0.72);
+  transform-origin: bottom;
+  animation: romantic-equalizer 1.2s ease-in-out infinite alternate;
+}
+
+.romantic-hero-waveform span:nth-child(1) {
+  height: 6px;
+  animation-delay: 0.0s;
+}
+
+.romantic-hero-waveform span:nth-child(2) {
+  height: 12px;
+  animation-delay: 0.2s;
+}
+
+.romantic-hero-waveform span:nth-child(3) {
+  height: 20px;
+  animation-delay: 0.4s;
+}
+
+.romantic-hero-waveform span:nth-child(4) {
+  height: 14px;
+  animation-delay: 0.1s;
+}
+
+.romantic-hero-waveform span:nth-child(5) {
+  height: 10px;
+  animation-delay: 0.3s;
+}
+
+@keyframes romantic-equalizer {
+  0% { transform: scaleY(1); }
+  100% { transform: scaleY(0.3); }
+}
+
+.romantic-hero-track-meta {
+  display: grid;
+  gap: 2px;
+}
+
+.romantic-hero-track-meta strong {
+  color: var(--romantic-text);
+  font-size: 1rem;
+}
+
+.romantic-hero-track-meta span {
+  color: var(--romantic-muted);
+  font-size: 0.95rem;
+}
+
+.romantic-hero-track-favorite {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 999px;
+  background: rgba(255, 245, 236, 0.08);
+}
+
+.romantic-hero-music-label {
+  margin: 0;
+  color: var(--romantic-rose);
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
+}
+
+.romantic-hero-action-block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.romantic-hero-action {
+  width: 84px;
+  height: 84px;
+  min-width: 84px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(216, 137, 112, 0.92);
+  color: var(--romantic-text);
+  display: grid;
+  place-items: center;
+  box-shadow: var(--romantic-shadow);
+  cursor: pointer;
+}
+
+.romantic-hero-action:hover,
+.romantic-hero-action:focus-visible {
+  transform: translateY(-1px);
+}
+
+.romantic-hero-mobile {
+  display: none;
+  width: 100%;
+}
+
+.romantic-mobile-image-wrapper {
+  position: relative;
+  min-height: min(48vh, 420px);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.romantic-mobile-image {
+  object-fit: cover;
+}
+
+.romantic-mobile-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(29, 12, 18, 0.14), rgba(29, 12, 18, 0.86));
+}
+
+.romantic-mobile-badge {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+.romantic-mobile-copy-panel {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+  border: 1px solid var(--romantic-border);
+  border-radius: 24px;
+  background: rgba(29, 12, 18, 0.75);
+}
+
+.romantic-hero-mobile-button {
+  width: 100%;
+  justify-content: center;
+}
+
+.is-hero-slide .romantic-music-status {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.romantic-visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.romantic-hero-reference {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  background: #07080c;
+}
+
+.romantic-hero-reference-image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.romantic-hero-reference-next {
+  position: absolute;
+  z-index: 3;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.romantic-hero-reference-next:focus-visible {
+  outline: 2px solid rgba(255, 236, 224, 0.94);
+  outline-offset: 4px;
+}
+
+.romantic-hero-reference-next-desktop {
+  right: 2.15%;
+  bottom: 44%;
+  width: 7.2%;
+  max-width: 96px;
+  min-width: 64px;
+  aspect-ratio: 1;
+}
+
+.romantic-hero-reference-next-mobile {
+  right: 6%;
+  bottom: 5.1%;
+  width: 15.8%;
+  aspect-ratio: 1;
 }
 
 .romantic-music-status {
@@ -179,11 +622,11 @@ body {
 .romantic-journey h1,
 .romantic-journey h2 {
   margin: 0;
-  color: var(--romantic-text);
-  font-size: clamp(2.4rem, 8vw, 6.6rem);
-  font-weight: 600;
+  color: var(--cv);
+  font-size: clamp(2.4rem, 8vw, 5.0rem);
+  font-weight: 500;
   letter-spacing: 0;
-  line-height: 0.95;
+  line-height: 0.80;
 }
 
 .romantic-journey h3 {
@@ -194,9 +637,11 @@ body {
 
 .romantic-journey p {
   color: var(--romantic-muted);
-  font-size: clamp(1rem, 2.2vw, 1.25rem);
-  line-height: 1.55;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  line-height: 1.25;
 }
+
+
 
 .romantic-lead {
   color: #ffe8d6;
@@ -330,6 +775,10 @@ body {
     align-items: center;
   }
 
+  .romantic-slide-shell-hero .romantic-slide-content {
+    display: block;
+  }
+
   .romantic-hero-desktop,
   .romantic-journey-desktop,
   .romantic-final-desktop,
@@ -413,6 +862,14 @@ body {
 
   .bg-nobu-waitlist-gradient {
     background: var(--gradient-waitlist);
+  }
+
+  .font-script {
+    font-family: var(--romantic-script);
+  }
+
+  .font-serif {
+    font-family: var(--romantic-serif);
   }
 }
 

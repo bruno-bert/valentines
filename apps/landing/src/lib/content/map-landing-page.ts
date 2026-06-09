@@ -1,1 +1,1 @@
-export { getLandingPageViewModel, mapLandingPageViewModel } from "@nobu/content-landing";
+export { getLandingPageViewModel, mapLandingPageViewModel } from "@valentines/content-landing";
