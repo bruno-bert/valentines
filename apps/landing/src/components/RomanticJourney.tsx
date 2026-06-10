@@ -17,10 +17,17 @@ interface RomanticJourneyProps {
   slides?: Slide[];
 }
 
-function renderSlide(slide: Slide, index: number, onCountdownComplete: () => void) {
+const playPerfectEventName = "romantic:play-perfect";
+
+function renderSlide(
+  slide: Slide,
+  index: number,
+  onCountdownComplete: () => void,
+  onStartPerfect: () => void
+) {
   switch (slide.type) {
     case "countdown":
-      return <CountdownSplashSlide onComplete={onCountdownComplete} />;
+      return <CountdownSplashSlide onComplete={onCountdownComplete} onStartPerfect={onStartPerfect} />;
     case "hero":
       return <HeroSlide slide={slide} />;
     case "counter":
@@ -49,6 +56,10 @@ export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJour
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const totalSlides = slides.length;
+  const firstVisibleSlideIndex = useMemo(
+    () => Math.max(slides.findIndex((slide) => slide.type !== "countdown"), 0),
+    [slides]
+  );
 
   const currentSlide = useMemo(() => slides[currentIndex], [currentIndex, slides]);
   const isCountdownSlide = currentSlide?.type === "countdown";
@@ -71,7 +82,11 @@ export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJour
   }, [slides, totalSlides]);
 
   const previousSlide = useCallback(() => {
-    setCurrentIndex((index) => Math.max(index - 1, 0));
+    setCurrentIndex((index) => Math.max(index - 1, firstVisibleSlideIndex));
+  }, [firstVisibleSlideIndex]);
+
+  const startPerfect = useCallback(() => {
+    window.dispatchEvent(new Event(playPerfectEventName));
   }, []);
 
   useEffect(() => {
@@ -148,7 +163,10 @@ export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJour
       onTouchEnd={handleTouchEnd}
       onTouchStart={(event) => setTouchStartX(event.changedTouches[0].clientX)}
     >
-      {isCountdownSlide ? null : <BackgroundMusic />}
+      <BackgroundMusic
+        ariaLabel={isCountdownSlide ? "" : "Perfect by Ed Sheeran"}
+        startOnMount={!isCountdownSlide}
+      />
       <SlideShell
         backgroundImage={currentSlide.image}
         className={getSlideShellClass(currentSlide.type)}
@@ -157,11 +175,11 @@ export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJour
             ariaNextLabel="Ir para o próximo slide"
             ariaPreviousLabel="Voltar para o slide anterior"
             disableNext={false}
-            disablePrevious={currentIndex === 0 || currentSlide.type === "hero"}
+            disablePrevious={currentIndex <= firstVisibleSlideIndex || currentSlide.type === "hero"}
             onNext={nextSlide}
             onPrevious={previousSlide}
             showNext
-            showPrevious={currentIndex > 0 && currentSlide.type !== "hero"}
+            showPrevious={currentIndex > firstVisibleSlideIndex && currentSlide.type !== "hero"}
           />
         )}
         pagination={isCountdownSlide ? null : (
@@ -176,7 +194,7 @@ export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJour
           </div>
         )}
       >
-        {renderSlide(currentSlide, currentIndex, nextSlide)}
+        {renderSlide(currentSlide, currentIndex, nextSlide, startPerfect)}
       </SlideShell>
     </main>
   );

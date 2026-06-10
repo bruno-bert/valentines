@@ -19,11 +19,13 @@ describe("RomanticJourney", () => {
   };
 
   const finishCountdown = () => {
-    for (let index = 0; index < 10; index += 1) {
+    for (let index = 0; index < 9; index += 1) {
       act(() => {
         jest.advanceTimersByTime(5_000);
       });
     }
+
+    fireEvent.click(screen.getByRole("button", { name: /Agora Vai/i }));
   };
 
   it("renders the start screen before the countdown splash", () => {
@@ -55,6 +57,30 @@ describe("RomanticJourney", () => {
     expect(screen.queryByRole("button", { name: /Voltar para o slide anterior/i })).not.toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Ir para o próximo slide/i })).toBeInTheDocument();
     expect(screen.queryByText(/O tempo pode ser estranho/i)).not.toBeInTheDocument();
+  });
+
+  it("waits for the final countdown play button before opening the Hero slide", async () => {
+    const play = jest.fn().mockResolvedValue(undefined);
+    HTMLMediaElement.prototype.play = play;
+
+    render(<RomanticJourney />);
+    startJourney();
+
+    for (let index = 0; index < 9; index += 1) {
+      act(() => {
+        jest.advanceTimersByTime(5_000);
+      });
+    }
+
+    expect(screen.getByRole("button", { name: /Agora Vai/i })).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { level: 1, name: "Nossa jornada" })).not.toBeInTheDocument();
+
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: /Agora Vai/i }));
+    });
+
+    expect(play).toHaveBeenCalled();
+    expect(screen.getAllByRole("heading", { level: 1, name: "Nossa jornada" }).length).toBeGreaterThan(0);
   });
 
   it("navigates forward and backward with buttons", () => {
@@ -91,6 +117,26 @@ describe("RomanticJourney", () => {
     expect(screen.getAllByRole("heading", { level: 2, name: /Desde que escolhemos/i }).length).toBeGreaterThan(0);
 
     fireEvent.keyDown(window, { key: "ArrowLeft" });
+    expect(screen.getAllByRole("heading", { level: 1, name: "Nossa jornada" }).length).toBeGreaterThan(0);
+  });
+
+  it("does not navigate back to the countdown from the Hero slide", () => {
+    render(<RomanticJourney />);
+    startJourney();
+    finishCountdown();
+
+    fireEvent.keyDown(window, { key: "ArrowLeft" });
+    expect(screen.queryByText("10")).not.toBeInTheDocument();
+    expect(screen.getAllByRole("heading", { level: 1, name: "Nossa jornada" }).length).toBeGreaterThan(0);
+
+    fireEvent.touchStart(screen.getByRole("main"), {
+      changedTouches: [{ clientX: 120 }]
+    });
+    fireEvent.touchEnd(screen.getByRole("main"), {
+      changedTouches: [{ clientX: 220 }]
+    });
+
+    expect(screen.queryByText("10")).not.toBeInTheDocument();
     expect(screen.getAllByRole("heading", { level: 1, name: "Nossa jornada" }).length).toBeGreaterThan(0);
   });
 

@@ -26,6 +26,7 @@ function HeroMusicCard() {
           <span />
         </div>
         <div className="romantic-hero-track-meta">
+          <strong>Perfect</strong>
           <span>Ed Sheeran</span>
         </div>
         <div className="romantic-hero-track-favorite" aria-hidden="true">

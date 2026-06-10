@@ -718,6 +718,37 @@ body {
   transform: scale(1.16);
 }
 
+.romantic-countdown-play {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 224, 198, 0.42);
+  border-radius: 999px;
+  background: rgba(216, 137, 112, 0.94);
+  color: #fff8f0;
+  cursor: pointer;
+  font-family: var(--romantic-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 12px 24px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.36);
+}
+
+.romantic-countdown-play:focus-visible,
+.romantic-countdown-play:hover {
+  transform: translateY(-1px);
+}
+
+.romantic-countdown-play-icon {
+  width: 0;
+  height: 0;
+  border-bottom: 8px solid transparent;
+  border-left: 13px solid currentColor;
+  border-top: 8px solid transparent;
+}
+
 .romantic-music-status {
   position: fixed;
   bottom: max(16px, env(safe-area-inset-bottom));

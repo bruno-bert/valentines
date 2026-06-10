@@ -21,12 +21,14 @@ const stepDurationMs = 5_000;
 
 interface CountdownSplashSlideProps {
   onComplete: () => void;
+  onStartPerfect: () => void;
 }
 
-export function CountdownSplashSlide({ onComplete }: CountdownSplashSlideProps) {
+export function CountdownSplashSlide({ onComplete, onStartPerfect }: CountdownSplashSlideProps) {
   const [stepIndex, setStepIndex] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
   const currentStep = countdownSteps[stepIndex];
+  const isFinalStep = stepIndex >= countdownSteps.length - 1;
 
   const playAudio = useCallback(async () => {
     const audio = audioRef.current;
@@ -72,17 +74,21 @@ export function CountdownSplashSlide({ onComplete }: CountdownSplashSlideProps) 
   }, [playAudio]);
 
   useEffect(() => {
-    const timeout = window.setTimeout(() => {
-      if (stepIndex >= countdownSteps.length - 1) {
-        onComplete();
-        return;
-      }
+    if (isFinalStep) {
+      return undefined;
+    }
 
+    const timeout = window.setTimeout(() => {
       setStepIndex((index) => index + 1);
     }, stepDurationMs);
 
     return () => window.clearTimeout(timeout);
-  }, [onComplete, stepIndex]);
+  }, [isFinalStep, stepIndex]);
+
+  const handleFinalClick = () => {
+    onStartPerfect();
+    onComplete();
+  };
 
   return (
     <div className="romantic-countdown-splash" aria-live="polite">
@@ -116,6 +122,16 @@ export function CountdownSplashSlide({ onComplete }: CountdownSplashSlideProps) 
           />
         </div>
         <p className="romantic-countdown-phrase">{currentStep.phrase}</p>
+        {isFinalStep ? (
+          <button
+            className="romantic-countdown-play"
+            type="button"
+            onClick={handleFinalClick}
+          >
+            <span className="romantic-countdown-play-icon" aria-hidden="true" />
+            Agora Vai
+          </button>
+        ) : null}
         <div className="romantic-countdown-progress" aria-hidden="true">
           {countdownSteps.map((step, index) => (
             <span className={index <= stepIndex ? "is-active" : ""} key={step.number} />

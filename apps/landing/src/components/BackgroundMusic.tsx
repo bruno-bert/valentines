@@ -3,12 +3,19 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
 export interface BackgroundMusicProps {
+  ariaLabel?: string;
   source?: string;
+  startOnMount?: boolean;
 }
 
 const interactionEvents = ["click", "touchstart", "keydown", "pointerdown"] as const;
+const playPerfectEventName = "romantic:play-perfect";
 
-export function BackgroundMusic({ source = "/assets/audio/perfect.mp3" }: BackgroundMusicProps) {
+export function BackgroundMusic({
+  ariaLabel = "Perfect by Ed Sheeran",
+  source = "/assets/audio/perfect.mp3",
+  startOnMount = true
+}: BackgroundMusicProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [status, setStatus] = useState("Música: preparando");
 
@@ -29,6 +36,18 @@ export function BackgroundMusic({ source = "/assets/audio/perfect.mp3" }: Backgr
   }, []);
 
   useEffect(() => {
+    window.addEventListener(playPerfectEventName, playAudio);
+
+    return () => {
+      window.removeEventListener(playPerfectEventName, playAudio);
+    };
+  }, [playAudio]);
+
+  useEffect(() => {
+    if (!startOnMount) {
+      return undefined;
+    }
+
     const audio = audioRef.current;
 
     if (!audio) {
@@ -58,14 +77,14 @@ export function BackgroundMusic({ source = "/assets/audio/perfect.mp3" }: Backgr
         window.removeEventListener(eventName, playAfterInteraction)
       );
     };
-  }, [playAudio]);
+  }, [playAudio, startOnMount]);
 
   return (
     <div className="romantic-music-status">
       <audio
         ref={audioRef}
-        aria-label="Perfect by Ed Sheeran"
-        autoPlay
+        aria-label={ariaLabel}
+        autoPlay={startOnMount}
         loop
         playsInline
         preload="auto"
