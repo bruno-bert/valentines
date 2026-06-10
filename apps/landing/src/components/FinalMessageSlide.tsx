@@ -12,7 +12,7 @@ interface FinalMessageSlideProps {
 
 export function FinalMessageSlide(_props: FinalMessageSlideProps) {
   return (
-    <div className="w-full h-full flex flex-col md:flex-row bg-black text-white relative overflow-hidden">
+    <div className="w-full h-full flex flex-col md:flex-row bg-black text-white relative overflow-y-auto md:overflow-hidden">
       {/* Mobile Layout: Photo at the top fading into black */}
       <div className="md:hidden w-full h-[45dvh] relative shrink-0">
         <Image
@@ -27,7 +27,7 @@ export function FinalMessageSlide(_props: FinalMessageSlideProps) {
       </div>
 
       {/* Text Content: Left side on Desktop, Bottom side on Mobile */}
-      <div className="w-full md:w-[55%] h-full flex flex-col justify-center items-center p-6 md:p-12 z-10 overflow-y-auto">
+      <div className="w-full md:w-[55%] flex flex-col justify-start md:justify-center items-center p-6 md:p-12 z-10 md:h-full md:overflow-y-auto">
         <div className="max-w-xl flex flex-col items-center text-center space-y-6 md:space-y-8 py-4 md:py-0">
           
           <div className="space-y-2 flex flex-col items-center">

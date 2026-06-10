@@ -188,13 +188,13 @@ function CounterMobileLayout() {
       <div className="relative z-10 flex flex-col items-center w-full h-full max-w-sm justify-between py-6">
         <div className="flex flex-col items-center justify-center mt-2">
           <Image src="/assets/icons/heart.svg" alt="" width={14} height={14} className="mb-3 opacity-80" />
-          <div className="flex items-center w-full max-w-[240px] gap-4 opacity-80">
+          <div className="flex items-center w-full max-w-[240px] gap-4 opacity-95">
             <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#cb867a]/70"></div>
-            <span className="uppercase tracking-[0.4em] text-white/90 font-serif text-xs">Juntos Há</span>
+            <span className="uppercase tracking-[0.4em] text-white font-serif text-xs font-semibold drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">Juntos Há</span>
             <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#cb867a]/70"></div>
           </div>
         </div>
-        <div className="flex flex-col w-full my-6 relative">
+        <div className="flex flex-col w-full my-6 relative rounded-2xl border border-[#cb867a]/20 bg-[#160a0f]/55 px-4 py-5 shadow-[0_12px_36px_rgba(0,0,0,0.35)] backdrop-blur-md">
           <div className="flex w-full justify-between items-center mb-8">
             <MobileTimeBlock value={time.years} label="ANO" /><MobileSeparator /><MobileTimeBlock value={time.months} label="MESES" /><MobileSeparator /><MobileTimeBlock value={time.days} label="DIAS" />
           </div>
