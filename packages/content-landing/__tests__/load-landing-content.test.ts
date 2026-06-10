@@ -4,7 +4,7 @@ describe("loadLandingContent", () => {
   it("returns the landing document with required blocks", () => {
     const doc = loadLandingContent();
 
-    expect(doc.brand.name).toBe("Nobu");
+    expect(doc.brand.name).toBe("Para Fábia");
     expect(doc.brand.logoSrc).toBe("/landing/brand/nobu-logo.png");
     expect(doc.hero.headline).toBeTruthy();
     expect(doc.benefits.items.length).toBeGreaterThanOrEqual(3);

@@ -8,7 +8,7 @@ describe("@valentines/landing public rendering and SEO", () => {
     render(<Page />);
 
     expect(screen.getAllByRole("heading", { level: 1, name: "Nossa jornada" }).length).toBeGreaterThan(0);
-    expect(metadata.title).toBe("Nobu — Aprendizado emocional para crianças");
-    expect(metadata.description).toMatch(/planos de estudo personalizados com IA/i);
+    expect(metadata.title).toBe("Para Fábia — Te Amo");
+    expect(metadata.description).toMatch(/Memórias de um amor/i);
   });
 });
