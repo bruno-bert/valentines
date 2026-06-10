@@ -1,4 +1,5 @@
 export type SlideType =
+  | "countdown"
   | "hero"
   | "counter"
   | "journey-photo"
@@ -31,11 +32,19 @@ export interface Slide {
 const photo = (name: string): string => `/assets/photos/${name}.svg`;
 const journeyPhoto = (name: string): string => `/assets/photos/${name}.jpeg`;
 const icon = (name: string): string => `/assets/icons/${name}.svg`;
+const countdownPhoto = (index: number): string => `/assets/countdown/${index}.webp`;
 
 export const counterPhrase =
   "O tempo pode ser estranho... Quando você está longe, os dias passam lentos. Mas quando está perto, tudo passa rápido demais.";
 
 export const romanticJourneySlides: Slide[] = [
+  {
+    id: "countdown",
+    type: "countdown",
+    title: "Contagem regressiva",
+    caption: "Carregando nossas caras favoritas...",
+    image: countdownPhoto(10)
+  },
   {
     id: "hero",
     type: "hero",
@@ -61,7 +70,7 @@ export const romanticJourneySlides: Slide[] = [
     type: "journey-photo",
     title: "Nossa Jornada",
     caption:
-      "Talvez naquele dia nós ainda não soubéssemos exatamente onde essa história iria nos levar. Mas olhando para trás, percebo que os melhores capítulos começaram em momentos simples como este.",
+      "Talvez naquele dia em Ubatuba, nós ainda não soubéssemos exatamente onde essa história iria nos levar. Mas olhando para trás, percebo que os melhores capítulos começaram em momentos simples como este. E Graças a Deus eu desci a serra aquele fim de semana. ",
     image: journeyPhoto("01-nossa-jornada")
   },
   {
@@ -69,7 +78,7 @@ export const romanticJourneySlides: Slide[] = [
     type: "journey-photo",
     title: "Quando você virou lar",
     caption:
-      "Existem lugares bonitos no mundo, mas em algum momento eu percebi que meu lugar favorito passou a ser qualquer lugar onde você estivesse.",
+      "Já conheci alguns lugares bonnitos, mas em algum momento eu percebi que meu lugar favorito passou a ser qualquer lugar onde você estivesse.",
     image: journeyPhoto("02-virou-lar")
   },
   {
@@ -77,7 +86,7 @@ export const romanticJourneySlides: Slide[] = [
     type: "journey-photo",
     title: "Abraços que acolhem",
     caption:
-      "Tem abraços que não precisam dizer nada. O seu é meu lugar seguro, minha calma e meu lar.",
+      "Naquele dia em Santo Antônio, eu te abracei e você nem percebeu a foto. Mas eu lembro do que senti: paz, alegria e aquela certeza boa de que estar nos seus braços era o meu lugar favorito.",
     image: journeyPhoto("03-abracos")
   },
   {
@@ -85,7 +94,7 @@ export const romanticJourneySlides: Slide[] = [
     type: "journey-photo",
     title: "Nossas aventuras",
     caption:
-      "Seja em um passeio, uma viagem ou uma noite qualquer, tudo fica mais leve quando estou com você.",
+      "No meio do povo, na chuva torrencial e com tudo acontecendo ao mesmo tempo, eu encontrei calmaria em você. Do seu lado, até a bagunça vira um lugar bom de estar.",
     image: journeyPhoto("04-aventuras")
   },
   {
@@ -93,7 +102,7 @@ export const romanticJourneySlides: Slide[] = [
     type: "journey-photo",
     title: "Nosso jeito de ser",
     caption:
-      "Entre risadas, brincadeiras e planos malucos, a gente foi criando um jeito só nosso de amar.",
+      "Entre piadas, provocações e você me zoando por ser véio e fazer piadas de tiozao, vocabulario dos anos 90, estar ficando careca, etc.. eu percebo o quanto amo esse seu jeito bobo e moleca. Você me faz sentir criança de novo: leve, inocente e feliz, como se a vida fosse só alegria.",
     image: journeyPhoto("05-risadas-jeito-de-ser")
   },
   {
@@ -101,7 +110,7 @@ export const romanticJourneySlides: Slide[] = [
     type: "journey-photo",
     title: "Nós e o mar",
     caption:
-      "Alguns momentos parecem guardar o tempo. Esse é um daqueles que eu queria viver de novo só para sentir tudo outra vez.",
+      "Alguns momentos parecem guardar o tempo. São tantas fotos, tatos lugares e momentos...e tão pouco tempo, se pensarmos né..Essa viagem  é uma daquelas que eu queria viver de novo.",
     image: journeyPhoto("06-nos-e-o-mar")
   },
   {
@@ -109,7 +118,7 @@ export const romanticJourneySlides: Slide[] = [
     type: "journey-photo",
     title: "Nossa pequena família",
     caption:
-      "Algumas histórias ficam ainda mais bonitas quando o amor transborda e vira cuidado, presença e família.",
+      "A felicidade só é plena quando compartilhada..Algumas histórias ficam ainda mais bonitas quando o amor transborda e vira cuidado, presença e família. Obrigado por me dar não só te amor, mas trazer todo o amor deles junto. Sua família é linda, e espero um dia que tenhamos nossos pequeninos...",
     image: journeyPhoto("07-nossa-pequena-familia")
   },
   {
@@ -127,18 +136,18 @@ export const romanticJourneySlides: Slide[] = [
       },
       {
         icon: icon("smile"),
-        title: "Seu sorriso",
-        description: "É capaz de iluminar qualquer dia meu e tornar tudo mais leve."
+        title: "Seu gosto musical",
+        description: "Adoro como sua playlist é eclética, cheia de surpresas e sempre perfeita para cada momento."
       },
       {
         icon: icon("heart"),
-        title: "Seu coração gigante",
-        description: "Você cuida de todo mundo ao seu redor com tanto amor e generosidade."
+        title: "Sua risada",
+        description: "Você é tão bobinha quando pode ser, deixando tudo mais leve e séria quando precisa."
       },
       {
         icon: icon("ballon_talk"),
         title: "Nossas conversas",
-        description: "Com você, eu posso falar sobre tudo e sobre nada. E é sempre perfeito."
+        description: "Com você, eu posso falar sobre tudo e sobre nada. Ser eu mesmo, E é sempre perfeito."
       },
       {
         icon: icon("couple"),

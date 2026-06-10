@@ -528,6 +528,112 @@ body {
   aspect-ratio: 1;
 }
 
+.romantic-countdown-splash {
+  position: relative;
+  display: grid;
+  min-height: 100dvh;
+  width: 100%;
+  place-items: center;
+  overflow: hidden;
+  background: #080609;
+  color: #fff8f0;
+  isolation: isolate;
+}
+
+.romantic-countdown-background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.romantic-countdown-background img {
+  object-fit: cover;
+  filter: blur(28px) saturate(1.15);
+  opacity: 0.34;
+  transform: scale(1.14);
+}
+
+.romantic-countdown-background::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    radial-gradient(circle at 50% 18%, rgba(216, 137, 112, 0.24), transparent 34%),
+    linear-gradient(180deg, rgba(8, 6, 9, 0.82), rgba(41, 16, 22, 0.72) 52%, rgba(8, 6, 9, 0.96));
+}
+
+.romantic-countdown-content {
+  display: flex;
+  width: min(420px, calc(100vw - 36px));
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.romantic-countdown-label {
+  color: rgba(255, 224, 198, 0.78);
+  font-family: var(--romantic-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.romantic-countdown-number {
+  color: #f09a83;
+  font-family: var(--romantic-serif);
+  font-size: clamp(5rem, 18vw, 9rem);
+  line-height: 0.78;
+  text-shadow: 0 12px 34px rgba(0, 0, 0, 0.56);
+  transition: color 220ms ease, transform 220ms ease;
+}
+
+.romantic-countdown-photo {
+  position: relative;
+  width: min(360px, 82vw);
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 24px;
+  background: transparent;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.52);
+}
+
+.romantic-countdown-photo img {
+  object-fit: cover;
+  transition: opacity 220ms ease;
+}
+
+.romantic-countdown-phrase {
+  min-height: 2.8em;
+  max-width: 380px;
+  color: rgba(255, 248, 240, 0.98);
+  font-family: var(--romantic-serif);
+  font-size: clamp(1.18rem, 4.8vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.28;
+  text-shadow: 0 5px 18px rgba(0, 0, 0, 0.82);
+  transition: opacity 220ms ease;
+}
+
+.romantic-countdown-progress {
+  display: flex;
+  gap: 6px;
+}
+
+.romantic-countdown-progress span {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 245, 236, 0.28);
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.romantic-countdown-progress span.is-active {
+  background: #f09a83;
+  transform: scale(1.16);
+}
+
 .romantic-music-status {
   position: fixed;
   bottom: max(16px, env(safe-area-inset-bottom));

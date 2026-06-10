@@ -26,7 +26,6 @@ function HeroMusicCard() {
           <span />
         </div>
         <div className="romantic-hero-track-meta">
-        <strong>Nossa música</strong>
           <span>Ed Sheeran</span>
         </div>
         <div className="romantic-hero-track-favorite" aria-hidden="true">
@@ -77,7 +76,7 @@ function HeroDesktopLayout() {
 
         {/* First Serif Paragraph */}
         <p className="text-white/90 font-serif text-lg lg:text-xl leading-relaxed max-w-md md:max-w-lg mb-8">
-          Quero te surpreender com algo simples,<br className="hidden lg:block" />
+          Fábia, ou Vida vidinha...vidona...Queria te surpreender com algo simples,<br className="hidden lg:block" />
           mas que vem do meu coração.<br className="hidden lg:block" />
           Essa página conta um pouco da nossa história,<br className="hidden lg:block" />
           dos momentos que vivemos e de tudo que ainda<br className="hidden lg:block" />
@@ -86,7 +85,7 @@ function HeroDesktopLayout() {
 
         {/* Middle Script Line */}
         <p className="text-[#d88970] font-script text-3xl lg:text-4xl mb-6 flex flex-wrap items-center gap-3">
-          Obrigado por ser meu tudo! <Image src="/assets/icons/heart.svg" alt="" width={24} height={24} />
+          Obrigado por ser meu porto seguro! <Image src="/assets/icons/heart.svg" alt="" width={24} height={24} />
         </p>
 
         {/* Divider with Heart */}
@@ -100,6 +99,7 @@ function HeroDesktopLayout() {
         <div className="text-[#d88970] font-script text-2xl lg:text-3xl max-w-md md:max-w-lg mb-12 leading-relaxed">
           <p>Desde que você entrou na minha vida,</p>
           <p>os dias passaram a ter mais cor, mais significado e mais amor.</p>
+          <p>Graças a você, Tenho tentado melhorar todos os dias como homem, como pai, como filho, como amigo e como amante.</p>
         </div>
 
         {/* Music Player Card */}
@@ -154,10 +154,22 @@ function HeroMobileLayout({ slide }: HeroSlideProps) {
       <div className="romantic-mobile-copy-panel">
         <h1 className="romantic-hero-title">Feito com amor, só para você</h1>
         <div className="romantic-hero-copy">
-          <p>Quero te surpreender com algo simples, mas que vem do meu coração.</p>
+          <p>Fábia, vida, vidinha ou vidona..Queria te surpreender com algo simples, mas que vem do meu coração.</p>
           <p>Essa página conta um pouco da nossa história, dos momentos que vivemos e de tudo que ainda sonho viver ao seu lado.</p>
         </div>
-        <p className="romantic-hero-note">Obrigado por ser meu tudo!</p>
+         
+
+        {/* Bottom Script Paragraph */}
+        <div className="text-[#d88970] font-script text-2xl lg:text-3xl max-w-md md:max-w-lg mb-12 leading-relaxed">
+          <p>Desde que você entrou na minha vida,</p>
+          <p>os dias passaram a ter mais cor, mais significado e mais amor.</p>
+          <p>Graças a você, Tenho tentado melhorar todos os dias como homem, como pai, como filho, como amigo e como amante.</p>
+        </div>
+
+         <p className="romantic-hero-note">Obrigado por ser meu porto seguro!</p>
+      
+
+        
         <HeroMusicCard />
       </div>
     </div>

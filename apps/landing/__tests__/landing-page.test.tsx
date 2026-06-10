@@ -9,15 +9,16 @@ describe("@valentines/landing romantic journey page", () => {
     );
   });
 
-  it("renders the romantic journey hero as the first experience", () => {
+  it("renders the countdown splash as the first experience", () => {
     render(<Page />);
 
-    expect(screen.getAllByRole("heading", { level: 1, name: "Nossa jornada" }).length).toBeGreaterThan(0);
-    expect(screen.getByText(/Perfect/i)).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /Ir para o próximo slide/i })).toBeInTheDocument();
+    expect(screen.getByText("10")).toBeInTheDocument();
+    expect(screen.getByText(/carregando nossas caras favoritas/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Perfect/i)).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /Ir para o próximo slide/i })).not.toBeInTheDocument();
   });
 
-  it("does not render the relationship counter on the hero slide", () => {
+  it("does not render the relationship counter on the countdown splash", () => {
     render(<Page />);
 
     expect(screen.queryByText(/O tempo pode ser estranho/i)).not.toBeInTheDocument();

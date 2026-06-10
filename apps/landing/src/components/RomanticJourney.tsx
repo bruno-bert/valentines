@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { romanticJourneySlides, type Slide } from "../data/romanticJourneyContent";
 import { BackgroundMusic } from "./BackgroundMusic";
+import { CountdownSplashSlide } from "./CountdownSplashSlide";
 import { CounterSlide } from "./CounterSlide";
 import { FinalMessageSlide } from "./FinalMessageSlide";
 import { HeroSlide } from "./HeroSlide";
@@ -16,8 +17,10 @@ interface RomanticJourneyProps {
   slides?: Slide[];
 }
 
-function renderSlide(slide: Slide, index: number) {
+function renderSlide(slide: Slide, index: number, onCountdownComplete: () => void) {
   switch (slide.type) {
+    case "countdown":
+      return <CountdownSplashSlide onComplete={onCountdownComplete} />;
     case "hero":
       return <HeroSlide slide={slide} />;
     case "counter":
@@ -47,10 +50,24 @@ export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJour
   const totalSlides = slides.length;
 
   const currentSlide = useMemo(() => slides[currentIndex], [currentIndex, slides]);
+  const isCountdownSlide = currentSlide?.type === "countdown";
+  const visibleSlides = useMemo(() => slides.filter((slide) => slide.type !== "countdown"), [slides]);
+  const visibleSlideIndex = useMemo(
+    () => slides.slice(0, currentIndex + 1).filter((slide) => slide.type !== "countdown").length - 1,
+    [currentIndex, slides]
+  );
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((index) => (index + 1) % totalSlides);
-  }, [totalSlides]);
+    setCurrentIndex((index) => {
+      const nextIndex = (index + 1) % totalSlides;
+
+      if (slides[nextIndex]?.type === "countdown" && totalSlides > 1) {
+        return 1;
+      }
+
+      return nextIndex;
+    });
+  }, [slides, totalSlides]);
 
   const previousSlide = useCallback(() => {
     setCurrentIndex((index) => Math.max(index - 1, 0));
@@ -59,17 +76,25 @@ export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJour
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowRight") {
+        if (isCountdownSlide) {
+          return;
+        }
+
         nextSlide();
       }
 
       if (event.key === "ArrowLeft") {
+        if (isCountdownSlide) {
+          return;
+        }
+
         previousSlide();
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [nextSlide, previousSlide]);
+  }, [isCountdownSlide, nextSlide, previousSlide]);
 
   if (!currentSlide) {
     return null;
@@ -81,6 +106,11 @@ export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJour
     }
 
     const deltaX = event.changedTouches[0].clientX - touchStartX;
+
+    if (isCountdownSlide) {
+      setTouchStartX(null);
+      return;
+    }
 
     if (Math.abs(deltaX) >= 48) {
       if (deltaX < 0) {
@@ -95,39 +125,39 @@ export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJour
 
   return (
     <main
-      className={`romantic-journey ${currentSlide.type === "hero" ? "is-hero-slide" : ""}`}
+      className={`romantic-journey ${currentSlide.type === "hero" ? "is-hero-slide" : ""} ${isCountdownSlide ? "is-countdown-slide" : ""}`}
       onTouchEnd={handleTouchEnd}
       onTouchStart={(event) => setTouchStartX(event.changedTouches[0].clientX)}
     >
-      <BackgroundMusic />
+      {isCountdownSlide ? null : <BackgroundMusic />}
       <SlideShell
         backgroundImage={currentSlide.image}
         className={getSlideShellClass(currentSlide.type)}
-        navigation={
+        navigation={isCountdownSlide ? null : (
           <NavigationButtons
             ariaNextLabel="Ir para o próximo slide"
             ariaPreviousLabel="Voltar para o slide anterior"
             disableNext={false}
-            disablePrevious={currentIndex === 0}
+            disablePrevious={currentIndex === 0 || currentSlide.type === "hero"}
             onNext={nextSlide}
             onPrevious={previousSlide}
             showNext
-            showPrevious={currentIndex > 0}
+            showPrevious={currentIndex > 0 && currentSlide.type !== "hero"}
           />
-        }
-        pagination={
-          <div className="romantic-pagination" aria-label={`Slide ${currentIndex + 1} de ${totalSlides}`}>
-            {slides.map((slide, index) => (
+        )}
+        pagination={isCountdownSlide ? null : (
+          <div className="romantic-pagination" aria-label={`Slide ${visibleSlideIndex + 1} de ${visibleSlides.length}`}>
+            {visibleSlides.map((slide, index) => (
               <span
                 aria-hidden="true"
-                className={index === currentIndex ? "is-active" : ""}
+                className={index === visibleSlideIndex ? "is-active" : ""}
                 key={slide.id}
               />
             ))}
           </div>
-        }
+        )}
       >
-        {renderSlide(currentSlide, currentIndex)}
+        {renderSlide(currentSlide, currentIndex, nextSlide)}
       </SlideShell>
     </main>
   );
