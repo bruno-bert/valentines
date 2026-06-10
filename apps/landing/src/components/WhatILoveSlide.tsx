@@ -3,8 +3,6 @@ import type { Slide } from "../data/romanticJourneyContent";
 
 interface WhatILoveSlideProps {
   slide: Slide;
-  onNext?: () => void;
-  onPrevious?: () => void;
 }
 
 interface LoveItem {
@@ -13,7 +11,7 @@ interface LoveItem {
   icon?: string;
 }
 
-function WhatILoveDesktopLayout({ slide, onNext, onPrevious }: WhatILoveSlideProps) {
+function WhatILoveDesktopLayout({ slide }: WhatILoveSlideProps) {
   const items = slide.items || [];
 
   return (
@@ -158,10 +156,10 @@ function WhatILoveMobileLayout({ slide }: WhatILoveSlideProps) {
   );
 }
 
-export function WhatILoveSlide({ slide, onNext, onPrevious }: WhatILoveSlideProps) {
+export function WhatILoveSlide({ slide }: WhatILoveSlideProps) {
   return (
     <>
-      <WhatILoveDesktopLayout slide={slide} onNext={onNext} onPrevious={onPrevious} />
+      <WhatILoveDesktopLayout slide={slide} />
       <WhatILoveMobileLayout slide={slide} />
     </>
   );

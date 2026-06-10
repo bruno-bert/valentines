@@ -16,16 +16,16 @@ interface RomanticJourneyProps {
   slides?: Slide[];
 }
 
-function renderSlide(slide: Slide, index: number, onNext: () => void, onPrevious: () => void) {
+function renderSlide(slide: Slide, index: number) {
   switch (slide.type) {
     case "hero":
       return <HeroSlide slide={slide} />;
     case "counter":
-      return <CounterSlide slide={slide} onNext={onNext} />;
+      return <CounterSlide slide={slide} />;
     case "journey-photo":
-      return <JourneyPhotoSlide slide={slide} index={index} onNext={onNext} onPrevious={onPrevious} />;
+      return <JourneyPhotoSlide slide={slide} index={index} />;
     case "what-i-love":
-      return <WhatILoveSlide slide={slide} onNext={onNext} onPrevious={onPrevious} />;
+      return <WhatILoveSlide slide={slide} />;
     case "final-message":
       return <FinalMessageSlide slide={slide} />;
     default:
@@ -119,7 +119,7 @@ export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJour
           </div>
         }
       >
-        {renderSlide(currentSlide, currentIndex, nextSlide, previousSlide)}
+        {renderSlide(currentSlide, currentIndex)}
       </SlideShell>
     </main>
   );

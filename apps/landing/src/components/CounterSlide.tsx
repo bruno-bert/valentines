@@ -4,7 +4,6 @@ import type { Slide } from "../data/romanticJourneyContent";
 
 interface CounterSlideProps {
   slide: Slide;
-  onNext: () => void;
 }
 
 interface TimeLeft {
@@ -80,7 +79,7 @@ const DesktopTimeBlock = ({ value, label, showSeparator = true }: { value: numbe
   </div>
 );
 
-function CounterDesktopLayout({ onNext }: { onNext: () => void }) {
+function CounterDesktopLayout() {
   const time = useLocalRelationshipTime();
 
   return (
@@ -218,11 +217,11 @@ function CounterMobileLayout() {
   );
 }
 
-export function CounterSlide({ slide, onNext }: CounterSlideProps) {
+export function CounterSlide({ slide }: CounterSlideProps) {
   return (
     <>
       <h2 className="romantic-visually-hidden">{slide.title}</h2>
-      <CounterDesktopLayout onNext={onNext} />
+      <CounterDesktopLayout />
       <CounterMobileLayout />
     </>
   );

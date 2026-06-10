@@ -4,8 +4,6 @@ import type { Slide } from "../data/romanticJourneyContent";
 interface JourneyPhotoSlideProps {
   slide: Slide;
   index?: number;
-  onNext?: () => void;
-  onPrevious?: () => void;
 }
 
 const renderDescription = (text: string | undefined) => {
@@ -24,7 +22,7 @@ const renderDescription = (text: string | undefined) => {
   });
 };
 
-function JourneyPhotoDesktopLayout({ slide, index = 0, onNext, onPrevious }: JourneyPhotoSlideProps) {
+function JourneyPhotoDesktopLayout({ slide, index = 0 }: JourneyPhotoSlideProps) {
   const slideData = slide as unknown as { description?: string; caption?: string };
   const text = slideData.description || slideData.caption || "";
   const isEven = index % 2 === 0;
@@ -116,10 +114,10 @@ function JourneyPhotoMobileLayout({ slide }: JourneyPhotoSlideProps) {
   );
 }
 
-export function JourneyPhotoSlide({ slide, index = 0, onNext, onPrevious }: JourneyPhotoSlideProps) {
+export function JourneyPhotoSlide({ slide, index = 0 }: JourneyPhotoSlideProps) {
   return (
     <>
-      <JourneyPhotoDesktopLayout slide={slide} index={index} onNext={onNext} onPrevious={onPrevious} />
+      <JourneyPhotoDesktopLayout slide={slide} index={index} />
       <JourneyPhotoMobileLayout slide={slide} index={index} />
     </>
   );
