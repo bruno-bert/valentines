@@ -70,33 +70,13 @@ function JourneyPhotoDesktopLayout({ slide, index = 0, onNext, onPrevious }: Jou
         </div>
       </div>
 
-      {/* Navigation Buttons */}
-      {onPrevious && (
-        <button 
-          onClick={onPrevious}
-          type="button"
-          aria-label="Anterior"
-          className="absolute left-8 lg:left-12 top-1/2 -translate-y-1/2 w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-[#3a161f]/70 hover:bg-[#3a161f] border border-[#cb867a]/20 transition-transform hover:-translate-x-1 flex items-center justify-center z-20 backdrop-blur-md shadow-lg cursor-pointer"
-        >
-          <Image src="/assets/icons/chevron-left.svg" alt="Anterior" width={32} height={32} className="opacity-80" />
-        </button>
-      )}
-
-      {onNext && (
-        <button 
-          onClick={onNext}
-          type="button"
-          aria-label="Próximo"
-          className="absolute right-8 lg:right-12 top-1/2 -translate-y-1/2 w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-[#d88970]/90 hover:bg-[#d88970] transition-transform hover:translate-x-1 flex items-center justify-center z-20 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.3)] cursor-pointer"
-        >
-          <Image src="/assets/icons/arrow_right.svg" alt="Próximo" width={32} height={32} />
-        </button>
-      )}
+    
+     
     </div>
   );
 }
 
-function JourneyPhotoMobileLayout({ slide, onNext, onPrevious }: JourneyPhotoSlideProps) {
+function JourneyPhotoMobileLayout({ slide }: JourneyPhotoSlideProps) {
   const slideData = slide as unknown as { description?: string; caption?: string };
   const text = slideData.description || slideData.caption || "";
 
@@ -132,21 +112,6 @@ function JourneyPhotoMobileLayout({ slide, onNext, onPrevious }: JourneyPhotoSli
           </p>
         </div>
       </div>
-      
-      {/* Nav buttons for mobile */}
-      <div className="absolute bottom-16 w-full px-8 flex justify-between items-center z-20">
-         {onPrevious ? (
-           <button onClick={onPrevious} aria-label="Anterior" className="w-12 h-12 rounded-full bg-[#3a161f]/70 hover:bg-[#3a161f] border border-[#cb867a]/20 flex items-center justify-center backdrop-blur-md transition-transform active:scale-95">
-             <Image src="/assets/icons/chevron-left.svg" alt="Anterior" width={24} height={24} className="opacity-80" />
-           </button>
-         ) : <div className="w-12 h-12" />}
-         
-         {onNext ? (
-           <button onClick={onNext} aria-label="Próximo" className="w-14 h-14 rounded-full bg-[#d88970]/90 hover:bg-[#d88970] flex items-center justify-center backdrop-blur-md shadow-lg transition-transform active:scale-95">
-             <Image src="/assets/icons/arrow_right.svg" alt="Próximo" width={28} height={28} />
-           </button>
-         ) : <div className="w-14 h-14" />}
-      </div>
     </div>
   );
 }
@@ -155,7 +120,7 @@ export function JourneyPhotoSlide({ slide, index = 0, onNext, onPrevious }: Jour
   return (
     <>
       <JourneyPhotoDesktopLayout slide={slide} index={index} onNext={onNext} onPrevious={onPrevious} />
-      <JourneyPhotoMobileLayout slide={slide} index={index} onNext={onNext} onPrevious={onPrevious} />
+      <JourneyPhotoMobileLayout slide={slide} index={index} />
     </>
   );
 }

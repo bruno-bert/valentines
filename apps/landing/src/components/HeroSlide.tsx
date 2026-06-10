@@ -4,7 +4,6 @@ import type { Slide } from "../data/romanticJourneyContent";
 
 interface HeroSlideProps {
   slide: Slide;
-  onNext: () => void;
 }
 
 function HeroHeadline() {
@@ -39,7 +38,7 @@ function HeroMusicCard() {
   );
 }
 
-function HeroDesktopLayout({ onNext }: { onNext: () => void }) {
+function HeroDesktopLayout() {
   return (
     <div className="hidden md:flex relative w-full h-[100dvh] overflow-hidden items-center bg-[#07080c]">
       {/* Background Image Container - Right Aligned with Smoke Edges */}
@@ -132,26 +131,17 @@ function HeroDesktopLayout({ onNext }: { onNext: () => void }) {
         </div>
       </div>
 
-      {/* Right Navigation Button */}
-      <button 
-        onClick={onNext}
-        type="button"
-        aria-label="Próximo"
-        className="absolute right-6 md:right-12 lg:right-16 top-1/2 -translate-y-1/2 w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-[#d88970]/90 hover:bg-[#d88970] transition-transform hover:-translate-y-1 flex items-center justify-center z-20 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.3)] cursor-pointer"
-      >
-        <Image src="/assets/icons/arrow_right.svg" alt="Próximo" width={32} height={32} />
-      </button>
     </div>
   );
 }
 
-function HeroMobileLayout({ slide, onNext }: HeroSlideProps) {
+function HeroMobileLayout({ slide }: HeroSlideProps) {
   return (
     <div className="romantic-hero-root romantic-hero-mobile">
       <div className="romantic-mobile-image-wrapper">
         <Image
           alt="Foto do nosso pôr do sol juntos"
-          src={slide.mobileImage ?? slide.image}
+          src={slide.image}
           fill
           priority
           className="romantic-mobile-image"
@@ -169,20 +159,17 @@ function HeroMobileLayout({ slide, onNext }: HeroSlideProps) {
         </div>
         <p className="romantic-hero-note">Obrigado por ser meu tudo!</p>
         <HeroMusicCard />
-        <button className="romantic-primary-action romantic-hero-mobile-button" onClick={onNext} type="button">
-          Próximo
-        </button>
       </div>
     </div>
   );
 }
 
-export function HeroSlide({ slide, onNext }: HeroSlideProps) {
+export function HeroSlide({ slide }: HeroSlideProps) {
   return (
     <>
       <h1 className="romantic-visually-hidden">{slide.title}</h1>
-      <HeroDesktopLayout onNext={onNext} />
-      <HeroMobileLayout slide={slide} onNext={onNext} />
+      <HeroDesktopLayout />
+      <HeroMobileLayout slide={slide} />
     </>
   );
 }

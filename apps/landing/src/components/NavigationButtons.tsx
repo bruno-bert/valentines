@@ -7,6 +7,8 @@ interface NavigationButtonsProps {
   disableNext: boolean;
   ariaPreviousLabel: string;
   ariaNextLabel: string;
+  showNext?: boolean;
+  showPrevious?: boolean;
   hideNext?: boolean;
   hidePrevious?: boolean;
 }
@@ -18,12 +20,17 @@ export function NavigationButtons({
   disableNext,
   ariaPreviousLabel,
   ariaNextLabel,
+  showNext = true,
+  showPrevious = true,
   hideNext,
   hidePrevious
 }: NavigationButtonsProps) {
+  const shouldShowPrevious = showPrevious && !hidePrevious;
+  const shouldShowNext = showNext && !hideNext;
+
   return (
     <div className="romantic-navigation" aria-label="Navegacao dos slides">
-      {!hidePrevious && (
+      {shouldShowPrevious && (
         <button
           aria-label={ariaPreviousLabel}
           className="romantic-nav-button romantic-nav-button-left"
@@ -34,7 +41,7 @@ export function NavigationButtons({
           <Image alt="" aria-hidden="true" height={30} src="/assets/icons/chevron-left.svg" width={30} />
         </button>
       )}
-      {!hideNext && (
+      {shouldShowNext && (
         <button
           aria-label={ariaNextLabel}
           className="romantic-nav-button romantic-nav-button-right"

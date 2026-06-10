@@ -13,6 +13,8 @@ describe("RomanticJourney", () => {
     render(<RomanticJourney />);
 
     expect(screen.getAllByRole("heading", { level: 1, name: "Nossa jornada" }).length).toBeGreaterThan(0);
+    expect(screen.queryByRole("button", { name: /Voltar para o slide anterior/i })).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Ir para o próximo slide/i })).toBeInTheDocument();
     expect(screen.queryByText(/O tempo pode ser estranho/i)).not.toBeInTheDocument();
   });
 
@@ -51,7 +53,7 @@ describe("RomanticJourney", () => {
     render(<RomanticJourney />);
     const nextButton = screen.getByRole("button", { name: /Ir para o próximo slide/i });
 
-    for (let index = 0; index < 11; index += 1) {
+    for (let index = 0; index < 10; index += 1) {
       fireEvent.click(nextButton);
     }
 

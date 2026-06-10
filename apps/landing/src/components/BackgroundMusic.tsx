@@ -71,7 +71,13 @@ export function BackgroundMusic({ source = "/assets/audio/perfect.mp3" }: Backgr
         preload="auto"
         src={source}
       />
-      <span>{status}</span>
+      <span className="romantic-music-bars" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+        <span />
+      </span>
+      <span className="romantic-visually-hidden">{status}</span>
     </div>
   );
 }

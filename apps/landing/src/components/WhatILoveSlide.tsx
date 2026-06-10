@@ -94,33 +94,13 @@ function WhatILoveDesktopLayout({ slide, onNext, onPrevious }: WhatILoveSlidePro
 
       </div>
 
-      {/* Navigation Buttons */}
-      {onPrevious && (
-        <button 
-          onClick={onPrevious}
-          type="button"
-          aria-label="Anterior"
-          className="absolute left-6 lg:left-10 top-1/2 -translate-y-1/2 w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-[#3a161f]/70 hover:bg-[#3a161f] border border-[#cb867a]/20 transition-transform hover:-translate-x-1 flex items-center justify-center z-20 backdrop-blur-md shadow-lg cursor-pointer"
-        >
-          <Image src="/assets/icons/chevron-left.svg" alt="Anterior" width={28} height={28} className="opacity-80" />
-        </button>
-      )}
+     
 
-      {onNext && (
-        <button 
-          onClick={onNext}
-          type="button"
-          aria-label="Próximo"
-          className="absolute right-6 lg:right-10 top-1/2 -translate-y-1/2 w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-[#d88970]/90 hover:bg-[#d88970] transition-transform hover:translate-x-1 flex items-center justify-center z-20 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.3)] cursor-pointer"
-        >
-          <Image src="/assets/icons/arrow_right.svg" alt="Próximo" width={28} height={28} />
-        </button>
-      )}
     </div>
   );
 }
 
-function WhatILoveMobileLayout({ slide, onNext, onPrevious }: WhatILoveSlideProps) {
+function WhatILoveMobileLayout({ slide }: WhatILoveSlideProps) {
   const items = slide.items || [];
 
   return (
@@ -174,21 +154,6 @@ function WhatILoveMobileLayout({ slide, onNext, onPrevious }: WhatILoveSlideProp
           </div>
         </div>
       </div>
-
-      {/* Nav buttons for mobile */}
-      <div className="fixed bottom-8 w-full px-8 flex justify-between items-center z-20 pointer-events-none">
-         {onPrevious ? (
-           <button onClick={onPrevious} aria-label="Anterior" className="pointer-events-auto w-12 h-12 rounded-full bg-[#3a161f]/70 hover:bg-[#3a161f] border border-[#cb867a]/20 flex items-center justify-center backdrop-blur-md transition-transform active:scale-95 shadow-lg">
-             <Image src="/assets/icons/chevron-left.svg" alt="Anterior" width={24} height={24} className="opacity-80" />
-           </button>
-         ) : <div className="w-12 h-12" />}
-         
-         {onNext ? (
-           <button onClick={onNext} aria-label="Próximo" className="pointer-events-auto w-14 h-14 rounded-full bg-[#d88970]/90 hover:bg-[#d88970] flex items-center justify-center backdrop-blur-md shadow-lg transition-transform active:scale-95">
-             <Image src="/assets/icons/arrow_right.svg" alt="Próximo" width={28} height={28} />
-           </button>
-         ) : <div className="w-14 h-14" />}
-      </div>
     </div>
   );
 }
@@ -197,7 +162,7 @@ export function WhatILoveSlide({ slide, onNext, onPrevious }: WhatILoveSlideProp
   return (
     <>
       <WhatILoveDesktopLayout slide={slide} onNext={onNext} onPrevious={onPrevious} />
-      <WhatILoveMobileLayout slide={slide} onNext={onNext} onPrevious={onPrevious} />
+      <WhatILoveMobileLayout slide={slide} />
     </>
   );
 }

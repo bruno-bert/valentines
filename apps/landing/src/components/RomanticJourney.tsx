@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { romanticJourneySlides, type Slide } from "../data/romanticJourneyContent";
 import { BackgroundMusic } from "./BackgroundMusic";
@@ -19,7 +19,7 @@ interface RomanticJourneyProps {
 function renderSlide(slide: Slide, index: number, onNext: () => void, onPrevious: () => void) {
   switch (slide.type) {
     case "hero":
-      return <HeroSlide slide={slide} onNext={onNext} />;
+      return <HeroSlide slide={slide} />;
     case "counter":
       return <CounterSlide slide={slide} onNext={onNext} />;
     case "journey-photo":
@@ -36,32 +36,15 @@ function renderSlide(slide: Slide, index: number, onNext: () => void, onPrevious
 export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJourneyProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
-  const finalLoopReadyRef = useRef(false);
   const totalSlides = slides.length;
 
   const currentSlide = useMemo(() => slides[currentIndex], [currentIndex, slides]);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((index) => {
-      const finalIndex = totalSlides - 1;
-
-      if (index === finalIndex) {
-        if (finalLoopReadyRef.current) {
-          finalLoopReadyRef.current = false;
-          return 0;
-        }
-
-        finalLoopReadyRef.current = true;
-        return index;
-      }
-
-      finalLoopReadyRef.current = false;
-      return Math.min(index + 1, finalIndex);
-    });
+    setCurrentIndex((index) => (index + 1) % totalSlides);
   }, [totalSlides]);
 
   const previousSlide = useCallback(() => {
-    finalLoopReadyRef.current = false;
     setCurrentIndex((index) => Math.max(index - 1, 0));
   }, []);
 
@@ -120,6 +103,8 @@ export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJour
             disablePrevious={currentIndex === 0}
             onNext={nextSlide}
             onPrevious={previousSlide}
+            showNext
+            showPrevious={currentIndex > 0}
           />
         }
         pagination={
