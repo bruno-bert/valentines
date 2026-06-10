@@ -15,17 +15,6 @@ function HeroHeadline() {
   );
 }
 
-function HeroTitle({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="romantic-hero-title-row">
-      <h1 className="romantic-hero-title">{children}</h1>
-      <div className="romantic-hero-title-icon" aria-hidden="true">
-        <Image src="/assets/icons/heart.svg" alt="" width={24} height={24} />
-      </div>
-    </div>
-  );
-}
-
 function HeroMusicCard() {
   return (
     <section className="romantic-hero-music-card" aria-label="Tocando agora">
@@ -38,7 +27,7 @@ function HeroMusicCard() {
           <span />
         </div>
         <div className="romantic-hero-track-meta">
-        <strong>Perfect</strong>
+        <strong>Nossa música</strong>
           <span>Ed Sheeran</span>
         </div>
         <div className="romantic-hero-track-favorite" aria-hidden="true">
@@ -50,15 +39,7 @@ function HeroMusicCard() {
   );
 }
 
-function HeroActionButton({ onNext }: { onNext: () => void }) {
-  return (
-    <button className="romantic-hero-action" onClick={onNext} type="button" aria-label="Ir para o próximo slide">
-      <Image src="/assets/icons/arrow_right.svg" alt="Próximo" width={24} height={24} />
-    </button>
-  );
-}
-
-function HeroDesktopLayout({ slide, onNext }: HeroSlideProps) {
+function HeroDesktopLayout({ onNext }: { onNext: () => void }) {
   return (
     <div className="hidden md:flex relative w-full h-[100dvh] overflow-hidden items-center bg-[#07080c]">
       {/* Background Image Container - Right Aligned with Smoke Edges */}
@@ -155,7 +136,7 @@ function HeroDesktopLayout({ slide, onNext }: HeroSlideProps) {
       <button 
         onClick={onNext}
         type="button"
-        aria-label="Ir para o próximo slide"
+        aria-label="Próximo"
         className="absolute right-6 md:right-12 lg:right-16 top-1/2 -translate-y-1/2 w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-[#d88970]/90 hover:bg-[#d88970] transition-transform hover:-translate-y-1 flex items-center justify-center z-20 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.3)] cursor-pointer"
       >
         <Image src="/assets/icons/arrow_right.svg" alt="Próximo" width={32} height={32} />
@@ -199,7 +180,8 @@ function HeroMobileLayout({ slide, onNext }: HeroSlideProps) {
 export function HeroSlide({ slide, onNext }: HeroSlideProps) {
   return (
     <>
-      <HeroDesktopLayout slide={slide} onNext={onNext} />
+      <h1 className="romantic-visually-hidden">{slide.title}</h1>
+      <HeroDesktopLayout onNext={onNext} />
       <HeroMobileLayout slide={slide} onNext={onNext} />
     </>
   );

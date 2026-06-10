@@ -44,7 +44,7 @@ export const romanticJourneySlides: Slide[] = [
     caption: "Um presente pequeno para guardar um amor enorme.",
     message:
       "Preparei cada pedacinho desta página para lembrar o quanto a nossa história é linda.",
-    image: "/assets/desktop/01-hero.jpeg",
+    image: "/assets/photos/00-first-page.jpeg",
     desktopImage: "/assets/desktop/01-hero.jpeg",
     mobileImage: "/assets/mobile/01-hero.jpeg"
   },

@@ -10,13 +10,7 @@ interface FinalMessageSlideProps {
   closing?: string;
 }
 
-export function FinalMessageSlide({
-  slide,
-  title,
-  image,
-  message,
-  closing,
-}: FinalMessageSlideProps) {
+export function FinalMessageSlide(_props: FinalMessageSlideProps) {
   return (
     <div className="w-full h-full flex flex-col md:flex-row bg-black text-white relative overflow-hidden">
       {/* Mobile Layout: Photo at the top fading into black */}

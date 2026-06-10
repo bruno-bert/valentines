@@ -10,7 +10,7 @@ const interactionEvents = ["click", "touchstart", "keydown", "pointerdown"] as c
 
 export function BackgroundMusic({ source = "/assets/audio/perfect.mp3" }: BackgroundMusicProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [status, setStatus] = useState("Música: preparando Perfect");
+  const [status, setStatus] = useState("Música: preparando");
 
   const playAudio = useCallback(async () => {
     const audio = audioRef.current;

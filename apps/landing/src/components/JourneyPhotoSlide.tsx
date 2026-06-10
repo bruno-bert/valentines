@@ -43,7 +43,7 @@ function JourneyPhotoDesktopLayout({ slide, index = 0, onNext, onPrevious }: Jou
         {/* Photo Container */}
         <div className="w-1/2 flex justify-center">
           <div className="relative w-full max-w-sm lg:max-w-md aspect-[3/4] rounded-2xl overflow-hidden border border-[#cb867a]/30 shadow-[0_8px_32px_rgba(203,134,122,0.15)] bg-[#1d0c12]">
-            <Image src={slide.image} alt={slide.title} fill className="object-cover object-center" priority />
+            <Image src={slide.image} alt={`Foto romantica: ${slide.title}`} fill className="object-cover object-center" priority />
           </div>
         </div>
 
@@ -96,7 +96,7 @@ function JourneyPhotoDesktopLayout({ slide, index = 0, onNext, onPrevious }: Jou
   );
 }
 
-function JourneyPhotoMobileLayout({ slide, index = 0, onNext, onPrevious }: JourneyPhotoSlideProps) {
+function JourneyPhotoMobileLayout({ slide, onNext, onPrevious }: JourneyPhotoSlideProps) {
   const slideData = slide as unknown as { description?: string; caption?: string };
   const text = slideData.description || slideData.caption || "";
 
@@ -121,7 +121,7 @@ function JourneyPhotoMobileLayout({ slide, index = 0, onNext, onPrevious }: Jour
 
         {/* Photo Container */}
         <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden border border-[#cb867a]/30 shadow-[0_8px_24px_rgba(203,134,122,0.1)] mb-8 bg-[#1d0c12]">
-          <Image src={slide.mobileImage || slide.image} alt={slide.title} fill className="object-cover object-center" priority />
+          <Image src={slide.mobileImage || slide.image} alt={`Foto romantica: ${slide.title}`} fill className="object-cover object-center" priority />
         </div>
 
         {/* Caption */}

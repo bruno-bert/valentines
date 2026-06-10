@@ -153,7 +153,7 @@ function CounterDesktopLayout({ onNext }: { onNext: () => void }) {
       <button 
         onClick={onNext}
         type="button"
-        aria-label="Ir para o próximo slide"
+        aria-label="Próximo"
         className="absolute right-12 lg:right-16 top-1/2 -translate-y-1/2 w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-[#d88970]/90 hover:bg-[#d88970] transition-transform hover:-translate-y-1 flex items-center justify-center z-20 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.3)] cursor-pointer"
       >
         <Image src="/assets/icons/arrow_right.svg" alt="Próximo" width={32} height={32} />
@@ -221,7 +221,7 @@ function CounterMobileLayout({ onNext }: { onNext: () => void }) {
             <p>Mas quando está perto, tudo passa <br/> <span className="font-script text-[#cb867a] text-4xl lowercase leading-none block mt-2">rápido demais.</span></p>
           </div>
         </div>
-        <button onClick={onNext} type="button" aria-label="Ir para o próximo slide" className="w-14 h-14 rounded-full bg-[#d88970]/90 hover:bg-[#d88970] transition-transform active:scale-95 flex items-center justify-center z-20 backdrop-blur-md shadow-lg"><Image src="/assets/icons/arrow_right.svg" alt="Próximo" width={24} height={24} /></button>
+        <button onClick={onNext} type="button" aria-label="Próximo" className="w-14 h-14 rounded-full bg-[#d88970]/90 hover:bg-[#d88970] transition-transform active:scale-95 flex items-center justify-center z-20 backdrop-blur-md shadow-lg"><Image src="/assets/icons/arrow_right.svg" alt="Próximo" width={24} height={24} /></button>
       </div>
     </div>
   );
@@ -230,6 +230,7 @@ function CounterMobileLayout({ onNext }: { onNext: () => void }) {
 export function CounterSlide({ slide, onNext }: CounterSlideProps) {
   return (
     <>
+      <h2 className="romantic-visually-hidden">{slide.title}</h2>
       <CounterDesktopLayout onNext={onNext} />
       <CounterMobileLayout onNext={onNext} />
     </>

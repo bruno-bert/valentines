@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { romanticJourneySlides, type Slide } from "../data/romanticJourneyContent";
 import { BackgroundMusic } from "./BackgroundMusic";
@@ -36,15 +36,32 @@ function renderSlide(slide: Slide, index: number, onNext: () => void, onPrevious
 export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJourneyProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const finalLoopReadyRef = useRef(false);
   const totalSlides = slides.length;
 
   const currentSlide = useMemo(() => slides[currentIndex], [currentIndex, slides]);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((index) => (index + 1) % totalSlides);
+    setCurrentIndex((index) => {
+      const finalIndex = totalSlides - 1;
+
+      if (index === finalIndex) {
+        if (finalLoopReadyRef.current) {
+          finalLoopReadyRef.current = false;
+          return 0;
+        }
+
+        finalLoopReadyRef.current = true;
+        return index;
+      }
+
+      finalLoopReadyRef.current = false;
+      return Math.min(index + 1, finalIndex);
+    });
   }, [totalSlides]);
 
   const previousSlide = useCallback(() => {
+    finalLoopReadyRef.current = false;
     setCurrentIndex((index) => Math.max(index - 1, 0));
   }, []);
 
@@ -101,8 +118,6 @@ export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJour
             ariaPreviousLabel="Voltar para o slide anterior"
             disableNext={false}
             disablePrevious={currentIndex === 0}
-            hideNext={currentSlide.type === "counter" || currentSlide.type === "journey-photo" || currentSlide.type === "what-i-love"}
-            hidePrevious={currentSlide.type === "journey-photo" || currentSlide.type === "what-i-love"}
             onNext={nextSlide}
             onPrevious={previousSlide}
           />
