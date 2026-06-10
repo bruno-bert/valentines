@@ -45,6 +45,7 @@ function getSlideShellClass(slideType: Slide["type"]) {
 }
 
 export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJourneyProps) {
+  const [hasStarted, setHasStarted] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const totalSlides = slides.length;
@@ -98,6 +99,24 @@ export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJour
 
   if (!currentSlide) {
     return null;
+  }
+
+  if (!hasStarted) {
+    return (
+      <main className="romantic-journey is-start-slide">
+        <section className="romantic-start-gate" aria-label="Iniciar jornada">
+          <div className="romantic-start-gate-background" aria-hidden="true" />
+          <button
+            className="romantic-start-button"
+            type="button"
+            onClick={() => setHasStarted(true)}
+          >
+            <span className="romantic-start-play" aria-hidden="true" />
+            <span className="romantic-start-text">clique para iniciar</span>
+          </button>
+        </section>
+      </main>
+    );
   }
 
   const handleTouchEnd = (event: React.TouchEvent<HTMLElement>) => {
