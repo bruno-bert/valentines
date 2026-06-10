@@ -127,19 +127,22 @@ function WhatILoveMobileLayout({ slide }: WhatILoveSlideProps) {
           </div>
         </div>
 
-        {/* List (Stacked for Mobile) */}
-        <div className="flex flex-col w-full mb-10 relative border border-[#cb867a]/20 rounded-3xl overflow-hidden bg-[#1d0c12]/50 backdrop-blur-sm shadow-xl">
+        {/* 3x3 Grid for Mobile */}
+        <div className="grid grid-cols-3 gap-2 w-full mb-8 relative">
           {items.map((item: LoveItem, idx: number) => {
-            const isLast = idx === items.length - 1;
             return (
-              <div key={idx} className={`flex flex-col items-center text-center p-4 ${!isLast ? 'border-b border-[#cb867a]/20' : ''}`}>
-                <div className="h-8 flex items-center justify-center mb-2">
-                  <Image src={item.icon || '/assets/icons/heart.svg'} alt="" width={20} height={20} className="opacity-80" />
+              <div
+                key={idx}
+                className="flex min-h-[126px] flex-col items-center justify-between rounded-2xl border border-[#cb867a]/20 bg-[#2b1518]/45 px-2 py-3 text-center shadow-[0_8px_24px_rgba(0,0,0,0.22)] backdrop-blur-md"
+              >
+                <div className="h-8 flex items-center justify-center">
+                  <Image src={item.icon || '/assets/icons/heart.svg'} alt="" width={24} height={24} className="opacity-85" />
                 </div>
-                <h3 className="text-[#d88970] font-serif font-medium text-base mb-1">{item.title}</h3>
-                <div className="text-white/80 font-serif text-[0.7rem] leading-[1.15]">
+                <h3 className="text-[#f2d8cb] font-serif font-medium text-[0.68rem] leading-tight">{item.title}</h3>
+                <div className="text-white/78 font-serif text-[0.66rem] leading-[1.16]">
                   {item.description}
                 </div>
+                <Image src="/assets/icons/heart.svg" alt="" width={9} height={9} className="opacity-75" />
               </div>
             );
           })}
