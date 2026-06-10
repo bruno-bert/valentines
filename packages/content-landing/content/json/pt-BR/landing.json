@@ -1,7 +1,7 @@
 ﻿{
   "brand": {
-    "name": "Nobu",
-    "tagline": "Aprendizado emocional que acolhe e diverte",
+    "name": "Para Fábia",
+    "tagline": "Te Amo",
     "logoAlt": "Nobu",
     "logoSrc": "/landing/brand/nobu-logo.png"
   },
@@ -262,8 +262,8 @@
     ]
   },
   "footer": {
-    "copyright": "© 2026 Nobu. Todos os direitos reservados.",
-    "tagline": "Aprendizado emocional para crianças",
+    "copyright": "© 2026 Valentines. Todos os direitos reservados.",
+    "tagline": "Memórias de um amor que cresce a cada dia.",
     "links": [
       {
         "id": "footer-about",
@@ -280,8 +280,8 @@
     ]
   },
   "seo": {
-    "title": "Nobu — Aprendizado emocional para crianças",
-    "description": "Em breve, você poderá transformar documentos, fotos, textos e anotações em planos de estudo personalizados com IA.",
-    "ogImageAlt": "Pai e filho estudando juntos no tablet com materiais do Nobu"
+    "title": "Para Fábia — Te Amo",
+    "description": "Memórias de um amor que cresce a cada dia.",
+    "ogImageAlt": "Memórias de um amor que cresce a cada dia."
   }
 }
