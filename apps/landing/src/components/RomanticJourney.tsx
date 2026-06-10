@@ -33,6 +33,14 @@ function renderSlide(slide: Slide, index: number) {
   }
 }
 
+function getSlideShellClass(slideType: Slide["type"]) {
+  if (slideType === "hero") {
+    return "romantic-slide-shell-hero";
+  }
+
+  return "romantic-slide-shell-full";
+}
+
 export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJourneyProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
@@ -94,7 +102,7 @@ export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJour
       <BackgroundMusic />
       <SlideShell
         backgroundImage={currentSlide.image}
-        className={currentSlide.type === "hero" ? "romantic-slide-shell-hero" : (currentSlide.type === "counter" || currentSlide.type === "journey-photo" || currentSlide.type === "what-i-love") ? "romantic-slide-shell-full" : ""}
+        className={getSlideShellClass(currentSlide.type)}
         navigation={
           <NavigationButtons
             ariaNextLabel="Ir para o próximo slide"

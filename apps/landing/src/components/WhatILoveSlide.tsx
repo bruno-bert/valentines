@@ -102,7 +102,7 @@ function WhatILoveMobileLayout({ slide }: WhatILoveSlideProps) {
   const items = slide.items || [];
 
   return (
-    <div className="flex md:hidden relative w-full min-h-[100dvh] flex-col items-center bg-[#07080c] py-12 px-6 overflow-y-auto">
+    <div className="flex md:hidden relative w-full h-[100dvh] flex-col items-center bg-[#07080c] py-12 px-6 overflow-y-auto overscroll-contain">
       {/* Background with blur */}
       <div className="absolute inset-0 z-0 fixed">
         <Image src="/assets/photos/whatilovephoto.jpeg" alt="Background" fill className="object-cover object-center opacity-15 blur-xl" />

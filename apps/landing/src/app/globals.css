@@ -813,7 +813,8 @@ body {
     padding-inline: max(18px, env(safe-area-inset-left));
   }
 
-  .romantic-slide-shell-hero {
+  .romantic-slide-shell-hero,
+  .romantic-slide-shell-full {
     padding-inline: 0;
   }
 
@@ -822,7 +823,8 @@ body {
     align-items: center;
   }
 
-  .romantic-slide-shell-hero .romantic-slide-content {
+  .romantic-slide-shell-hero .romantic-slide-content,
+  .romantic-slide-shell-full .romantic-slide-content {
     display: block;
     width: 100vw;
     max-width: none;
