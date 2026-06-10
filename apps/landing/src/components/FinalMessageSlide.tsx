@@ -1,23 +1,24 @@
 import React from 'react';
 import Image from 'next/image';
+import type { Slide } from "../data/romanticJourneyContent";
 
 interface FinalMessageSlideProps {
+  slide?: Slide;
   title?: string;
   image?: string;
   message?: string[] | string;
   closing?: string;
-  [key: string]: any;
 }
 
 export function FinalMessageSlide({
+  slide,
   title,
   image,
   message,
   closing,
-  ...props
 }: FinalMessageSlideProps) {
   return (
-    <div className="w-full h-full flex flex-col md:flex-row bg-black text-white relative overflow-hidden" {...props}>
+    <div className="w-full h-full flex flex-col md:flex-row bg-black text-white relative overflow-hidden">
       {/* Mobile Layout: Photo at the top fading into black */}
       <div className="md:hidden w-full h-[45dvh] relative shrink-0">
         <Image

@@ -25,7 +25,8 @@ const renderDescription = (text: string | undefined) => {
 };
 
 function JourneyPhotoDesktopLayout({ slide, index = 0, onNext, onPrevious }: JourneyPhotoSlideProps) {
-  const text = (slide as any).description || (slide as any).caption || "";
+  const slideData = slide as unknown as { description?: string; caption?: string };
+  const text = slideData.description || slideData.caption || "";
   const isEven = index % 2 === 0;
 
   return (
@@ -96,7 +97,8 @@ function JourneyPhotoDesktopLayout({ slide, index = 0, onNext, onPrevious }: Jou
 }
 
 function JourneyPhotoMobileLayout({ slide, index = 0, onNext, onPrevious }: JourneyPhotoSlideProps) {
-  const text = (slide as any).description || (slide as any).caption || "";
+  const slideData = slide as unknown as { description?: string; caption?: string };
+  const text = slideData.description || slideData.caption || "";
 
   return (
     <div className="flex md:hidden relative w-full h-[100dvh] overflow-hidden flex-col items-center bg-[#07080c] py-8 px-6">

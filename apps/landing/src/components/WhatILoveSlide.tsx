@@ -7,6 +7,12 @@ interface WhatILoveSlideProps {
   onPrevious?: () => void;
 }
 
+interface LoveItem {
+  title: string;
+  description: string;
+  icon?: string;
+}
+
 function WhatILoveDesktopLayout({ slide, onNext, onPrevious }: WhatILoveSlideProps) {
   const items = slide.items || [];
 
@@ -49,7 +55,7 @@ function WhatILoveDesktopLayout({ slide, onNext, onPrevious }: WhatILoveSlidePro
 
         {/* 3x3 Grid */}
         <div className="grid grid-cols-3 max-w-3xl mx-auto w-full">
-          {items.map((item: any, idx: number) => {
+          {items.map((item: LoveItem, idx: number) => {
             const isBottomRow = idx >= 6;
             const isRightCol = idx % 3 === 2;
             
@@ -145,7 +151,7 @@ function WhatILoveMobileLayout({ slide, onNext, onPrevious }: WhatILoveSlideProp
 
         {/* List (Stacked for Mobile) */}
         <div className="flex flex-col w-full mb-10 relative border border-[#cb867a]/20 rounded-3xl overflow-hidden bg-[#1d0c12]/50 backdrop-blur-sm shadow-xl">
-          {items.map((item: any, idx: number) => {
+          {items.map((item: LoveItem, idx: number) => {
             const isLast = idx === items.length - 1;
             return (
               <div key={idx} className={`flex flex-col items-center text-center p-4 ${!isLast ? 'border-b border-[#cb867a]/20' : ''}`}>
