@@ -139,6 +139,9 @@ function HeroDesktopLayout() {
 function HeroMobileLayout({ slide }: HeroSlideProps) {
   return (
     <div className="romantic-hero-root romantic-hero-mobile">
+      <div className="romantic-mobile-music-top">
+        <HeroMusicCard />
+      </div>
       <div className="romantic-mobile-image-wrapper">
         <Image
           alt="Foto do nosso pôr do sol juntos"
@@ -168,10 +171,6 @@ function HeroMobileLayout({ slide }: HeroSlideProps) {
         </div>
 
          <p className="romantic-hero-note">Obrigado por ser meu porto seguro!</p>
-      
-
-        
-        <HeroMusicCard />
       </div>
     </div>
   );

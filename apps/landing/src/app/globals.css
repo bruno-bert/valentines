@@ -455,7 +455,38 @@ body {
 .romantic-mobile-badge {
   position: absolute;
   left: 20px;
-  top: 20px;
+  top: 112px;
+}
+
+.romantic-mobile-music-top {
+  position: absolute;
+  top: max(12px, env(safe-area-inset-top));
+  left: 16px;
+  right: 16px;
+  z-index: 3;
+}
+
+.romantic-mobile-music-top .romantic-hero-music-card {
+  max-width: none;
+  gap: 6px;
+  border-radius: 14px;
+  background: rgba(29, 12, 18, 0.78);
+  padding: 12px 14px;
+  backdrop-filter: blur(14px);
+}
+
+.romantic-mobile-music-top .romantic-hero-music-row {
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.romantic-mobile-music-top .romantic-hero-track-favorite {
+  padding: 8px;
+}
+
+.romantic-mobile-music-top .romantic-hero-music-label {
+  font-size: 0.78rem;
 }
 
 .romantic-mobile-copy-panel {
