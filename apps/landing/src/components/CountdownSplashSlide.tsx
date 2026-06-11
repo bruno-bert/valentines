@@ -17,7 +17,7 @@ const countdownSteps = [
 ];
 
 const interactionEvents = ["click", "touchstart", "keydown", "pointerdown"] as const;
-const stepDurationMs = 5_00;
+const stepDurationMs = 5_000;
 
 interface CountdownSplashSlideProps {
   onComplete: () => void;
