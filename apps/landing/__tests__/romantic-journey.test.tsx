@@ -8,6 +8,7 @@ describe("RomanticJourney", () => {
     HTMLMediaElement.prototype.play = jest.fn(
       () => new Promise<void>(() => undefined)
     );
+    HTMLMediaElement.prototype.pause = jest.fn();
   });
 
   afterEach(() => {
@@ -26,6 +27,8 @@ describe("RomanticJourney", () => {
     }
 
     fireEvent.click(screen.getByRole("button", { name: /Agora Vai/i }));
+    fireEvent.ended(screen.getByLabelText("Piadinha final"));
+    fireEvent.click(screen.getByRole("button", { name: /Agora Vai, De Verdade/i }));
   };
 
   it("renders the start screen before the countdown splash", () => {
@@ -59,7 +62,7 @@ describe("RomanticJourney", () => {
     expect(screen.queryByText(/O tempo pode ser estranho/i)).not.toBeInTheDocument();
   });
 
-  it("waits for the final countdown play button before opening the Hero slide", async () => {
+  it("shows a zero video interlude before opening the Hero slide", async () => {
     const play = jest.fn().mockResolvedValue(undefined);
     HTMLMediaElement.prototype.play = play;
 
@@ -79,7 +82,18 @@ describe("RomanticJourney", () => {
       fireEvent.click(screen.getByRole("button", { name: /Agora Vai/i }));
     });
 
-    expect(play).toHaveBeenCalled();
+    expect(screen.getByText("0")).toBeInTheDocument();
+    expect(screen.getByText(/Espera... uma piadinha final/i)).toBeInTheDocument();
+    expect(screen.getByLabelText("Piadinha final")).toHaveAttribute("src", "/assets/countdown/video.mp4");
+    expect(screen.queryByRole("button", { name: /Agora Vai, De Verdade/i })).not.toBeInTheDocument();
+
+    fireEvent.ended(screen.getByLabelText("Piadinha final"));
+    expect(screen.getByRole("button", { name: /Agora Vai, De Verdade/i })).toBeInTheDocument();
+
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: /Agora Vai, De Verdade/i }));
+    });
+
     expect(screen.getAllByRole("heading", { level: 1, name: "Nossa jornada" }).length).toBeGreaterThan(0);
   });
 
@@ -127,6 +141,7 @@ describe("RomanticJourney", () => {
 
     fireEvent.keyDown(window, { key: "ArrowLeft" });
     expect(screen.queryByText("10")).not.toBeInTheDocument();
+    expect(screen.queryByLabelText("Piadinha final")).not.toBeInTheDocument();
     expect(screen.getAllByRole("heading", { level: 1, name: "Nossa jornada" }).length).toBeGreaterThan(0);
 
     fireEvent.touchStart(screen.getByRole("main"), {
@@ -137,6 +152,7 @@ describe("RomanticJourney", () => {
     });
 
     expect(screen.queryByText("10")).not.toBeInTheDocument();
+    expect(screen.queryByLabelText("Piadinha final")).not.toBeInTheDocument();
     expect(screen.getAllByRole("heading", { level: 1, name: "Nossa jornada" }).length).toBeGreaterThan(0);
   });
 

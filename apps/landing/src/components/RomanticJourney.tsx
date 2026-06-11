@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { romanticJourneySlides, type Slide } from "../data/romanticJourneyContent";
@@ -51,6 +52,51 @@ function getSlideShellClass(slideType: Slide["type"]) {
   return "romantic-slide-shell-full";
 }
 
+interface SwipeHintProps {
+  showNext: boolean;
+  showPrevious: boolean;
+}
+
+function SwipeHint({ showNext, showPrevious }: SwipeHintProps) {
+  if (!showNext && !showPrevious) {
+    return null;
+  }
+
+  return (
+    <div
+      className={`romantic-swipe-hint ${showNext && showPrevious ? "romantic-swipe-hint-both" : ""}`}
+      aria-label="Dica: arraste para esquerda ou direita para navegar"
+    >
+      {showPrevious ? (
+        <div className="romantic-swipe-hint-item">
+          <Image
+            alt=""
+            aria-hidden="true"
+            className="romantic-swipe-icon"
+            height={278}
+            src="/assets/icons/swipe-right.png"
+            width={322}
+          />
+          <span>Arraste para direita</span>
+        </div>
+      ) : null}
+      {showNext ? (
+        <div className="romantic-swipe-hint-item">
+          <Image
+            alt=""
+            aria-hidden="true"
+            className="romantic-swipe-icon"
+            height={440}
+            src="/assets/icons/swipe-left.png"
+            width={567}
+          />
+          <span>Arraste para esquerda</span>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJourneyProps) {
   const [hasStarted, setHasStarted] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -64,6 +110,7 @@ export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJour
   const currentSlide = useMemo(() => slides[currentIndex], [currentIndex, slides]);
   const isCountdownSlide = currentSlide?.type === "countdown";
   const visibleSlides = useMemo(() => slides.filter((slide) => slide.type !== "countdown"), [slides]);
+  const canNavigatePrevious = currentIndex > firstVisibleSlideIndex && currentSlide?.type !== "hero";
   const visibleSlideIndex = useMemo(
     () => slides.slice(0, currentIndex + 1).filter((slide) => slide.type !== "countdown").length - 1,
     [currentIndex, slides]
@@ -175,23 +222,26 @@ export function RomanticJourney({ slides = romanticJourneySlides }: RomanticJour
             ariaNextLabel="Ir para o próximo slide"
             ariaPreviousLabel="Voltar para o slide anterior"
             disableNext={false}
-            disablePrevious={currentIndex <= firstVisibleSlideIndex || currentSlide.type === "hero"}
+            disablePrevious={!canNavigatePrevious}
             onNext={nextSlide}
             onPrevious={previousSlide}
             showNext
-            showPrevious={currentIndex > firstVisibleSlideIndex && currentSlide.type !== "hero"}
+            showPrevious={canNavigatePrevious}
           />
         )}
         pagination={isCountdownSlide ? null : (
-          <div className="romantic-pagination" aria-label={`Slide ${visibleSlideIndex + 1} de ${visibleSlides.length}`}>
-            {visibleSlides.map((slide, index) => (
-              <span
-                aria-hidden="true"
-                className={index === visibleSlideIndex ? "is-active" : ""}
-                key={slide.id}
-              />
-            ))}
-          </div>
+          <>
+            <SwipeHint showNext showPrevious={canNavigatePrevious} />
+            <div className="romantic-pagination" aria-label={`Slide ${visibleSlideIndex + 1} de ${visibleSlides.length}`}>
+              {visibleSlides.map((slide, index) => (
+                <span
+                  aria-hidden="true"
+                  className={index === visibleSlideIndex ? "is-active" : ""}
+                  key={slide.id}
+                />
+              ))}
+            </div>
+          </>
         )}
       >
         {renderSlide(currentSlide, currentIndex, nextSlide, startPerfect)}

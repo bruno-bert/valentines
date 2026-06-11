@@ -61,9 +61,9 @@ function JourneyPhotoDesktopLayout({ slide, index = 0 }: JourneyPhotoSlideProps)
           {/* Caption */}
           <div className="flex flex-col items-center max-w-lg text-center px-4">
             <Image src="/assets/icons/heart.svg" alt="" width={16} height={16} className="mb-6 opacity-80" />
-            <p className="text-white/90 font-serif text-xl lg:text-[1.35rem] leading-relaxed whitespace-pre-line drop-shadow-md">
+            <div className="romantic-journey-caption romantic-journey-caption-desktop">
               {renderDescription(text)}
-            </p>
+            </div>
           </div>
         </div>
       </div>
@@ -105,9 +105,9 @@ function JourneyPhotoMobileLayout({ slide }: JourneyPhotoSlideProps) {
         {/* Caption */}
         <div className="flex flex-col items-center text-center px-2 flex-1 justify-center max-h-[30vh]">
           <Image src="/assets/icons/heart.svg" alt="" width={12} height={12} className="mb-3 opacity-80" />
-          <p className="text-white/90 font-serif text-[1.05rem] leading-relaxed whitespace-pre-line drop-shadow-md">
+          <div className="romantic-journey-caption romantic-journey-caption-mobile">
             {renderDescription(text)}
-          </p>
+          </div>
         </div>
       </div>
     </div>
